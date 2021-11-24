@@ -1,0 +1,53 @@
+﻿@model BrandStore.Models.Brand
+
+<div class="container">
+
+    @if (Model.Active == true)
+    {
+        <h3>Pasif Yap</h3>
+    }
+    else
+    {
+        <h3>Aktif Et</h3>
+    }
+
+    <hr />
+    <div>
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+        <div class="row">
+            <div class="col-md-3">
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    @if (Model.Active == true)
+                    {
+                        <input type="submit" value="Pasif Yap" class="btn btn-block btn-danger" />
+                    }
+                    else
+                    {
+                        <input type="submit" value="Aktif Et" class="btn btn-block btn-danger" />
+                    }
+                </form>
+            </div>
+            <div class="col-md-3">
+                <form asp-action="Index">
+                    <div class="form-group">
+                        <input type="submit" value="Listeye Don" class="btn btn-block btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

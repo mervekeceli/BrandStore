@@ -1,0 +1,53 @@
+﻿@model BrandStore.Models.Category
+
+<div class="container">
+    <h1>Kategori Sil</h1>
+    <hr />
+    
+    <form asp-action="Create" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-4">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label asp-for="MainCategoryId" class="control-label"></label>
+                    <select asp-for="MainCategoryId" class="form-control" asp-items="ViewBag.MainCategoryId"></select>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" col-md-8">
+                <div class="form-group">
+                    <input type="submit" value="Ekle" class="btn btn-block btn-primary" />
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+    <form asp-action="Index">
+        <div class="row">
+            <div class=" col-md-8">
+                <div class="form-group">
+                    <input type="submit" value="Listeye Don" class="btn btn-block btn-primary" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

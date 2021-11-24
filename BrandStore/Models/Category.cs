@@ -16,8 +16,6 @@ namespace BrandStore.Models
         public int MainCategoryId { get; set; }
 
         public MainCategory MainCategory { get; set; }
-
-
-
+        
     }
 }
