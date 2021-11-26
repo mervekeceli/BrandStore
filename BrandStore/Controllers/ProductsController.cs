@@ -1,5 +1,6 @@
 ﻿using BrandStore.Data;
 using BrandStore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -12,10 +13,10 @@ using System.Threading.Tasks;
 
 namespace BrandStore.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ProductsController : Controller
     {
 
-      
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _hostEnviroment;
        

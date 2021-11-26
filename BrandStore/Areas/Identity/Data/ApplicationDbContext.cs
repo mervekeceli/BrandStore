@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 using BrandStore.Models;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BrandStore.Data
 {
+  
     public class ApplicationDbContext : IdentityDbContext<UserDetails>
     {
 
