@@ -34,6 +34,13 @@ using BrandStore.Areas.Identity.Pages;
 #line hidden
 #nullable disable
 #nullable restore
+#line 5 "C:\Users\User\Desktop\gunceeeel\BrandStore\BrandStore\Areas\Identity\Pages\_ViewImports.cshtml"
+using BrandStore.Areas.Identity.Data;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\User\Desktop\gunceeeel\BrandStore\BrandStore\Areas\Identity\Pages\Account\_ViewImports.cshtml"
 using BrandStore.Areas.Identity.Pages.Account;
 
@@ -41,7 +48,7 @@ using BrandStore.Areas.Identity.Pages.Account;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ec3851289c7eb1c0a372ae6bdeae2fe046be4a67", @"/Areas/Identity/Pages/Account/_ViewImports.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"524b76b656a158734f339561ceae2b1815d70f16", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e21aa646a9724db8cc63346458d21fb8410c8321", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     public class Areas_Identity_Pages_Account__ViewImports : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

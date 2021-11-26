@@ -1,7 +1,8 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using BrandStore.Areas.Identity.Data
 
-@inject SignInManager<UserDetails> SignInManager
-@inject UserManager<UserDetails> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))

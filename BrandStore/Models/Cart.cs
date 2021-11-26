@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrandStore.Areas.Identity.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace BrandStore.Models
         [ForeignKey("UserDetails")]
         public string UserDetailsId { get; set; }
 
-        public UserDetails UserDetails { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public string Status { get; set; }
 
