@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4Pnszm8dksKkSrKUCv1WcUFLyhr06gO2zEMgSvuPbqv/Oo7SCuTTNowngT01uqJdPl3mvpn6mfzhpJR9hq/Rww==",
+  "dgSpecHash": "IsOxnvfa2rqJdktU7nID5hchbZ6sotd+8eOPs1e5SB1AT2PIOj0JwLk0kLz3l86GjQRgwHP8KKPlRtethgkC+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\Desktop\\gunceeeel\\BrandStore\\BrandStore\\BrandStore.csproj",
+  "projectFilePath": "C:\\Users\\User\\Desktop\\MerveninGuncel\\BrandStore\\BrandStore\\BrandStore.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\User\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\User\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.12\\microsoft.aspnetcore.cryptography.internal.5.0.12.nupkg.sha512",

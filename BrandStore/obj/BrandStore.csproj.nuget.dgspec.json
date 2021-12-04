@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\gunceeeel\\BrandStore\\BrandStore\\BrandStore.csproj": {}
+    "C:\\Users\\User\\Desktop\\MerveninGuncel\\BrandStore\\BrandStore\\BrandStore.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\gunceeeel\\BrandStore\\BrandStore\\BrandStore.csproj": {
+    "C:\\Users\\User\\Desktop\\MerveninGuncel\\BrandStore\\BrandStore\\BrandStore.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\gunceeeel\\BrandStore\\BrandStore\\BrandStore.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\MerveninGuncel\\BrandStore\\BrandStore\\BrandStore.csproj",
         "projectName": "BrandStore",
-        "projectPath": "C:\\Users\\User\\Desktop\\gunceeeel\\BrandStore\\BrandStore\\BrandStore.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\MerveninGuncel\\BrandStore\\BrandStore\\BrandStore.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\gunceeeel\\BrandStore\\BrandStore\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\MerveninGuncel\\BrandStore\\BrandStore\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

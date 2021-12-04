@@ -21,7 +21,10 @@ namespace BrandStore.Areas.Identity
                         context.Configuration.GetConnectionString("ApplicationDbContextConnection")));
 
                 services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<ApplicationDbContext>();
+                     .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                   .AddDefaultTokenProviders()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
             });
         }
     }

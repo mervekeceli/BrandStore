@@ -1,6 +1,8 @@
 ﻿@model BrandStore.Models.Product
-
-<div class="container">
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="main-content">
     <h1>Urun Ekle</h1>
     <hr />
 
@@ -35,7 +37,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label asp-for="BrandId" class="control-label"></label>
-                    <select asp-for="BrandId" class="form-control" asp-items="ViewBag.BrandId"></select>
+                    <input asp-for="BrandId" type="text" value=@ViewBag.BrandId>
                 </div>
                 <div class="form-group">
                     <label asp-for="CategoryId" class="control-label"></label>

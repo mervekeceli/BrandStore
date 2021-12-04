@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrandStore.Areas.Identity.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,5 +14,9 @@ namespace BrandStore.Models
 
         public String Description { get; set; }
         public bool Active { get; set; }
+
+        public String ApplicationUserId { get; set; }
+
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }

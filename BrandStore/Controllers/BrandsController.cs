@@ -1,11 +1,13 @@
 ﻿using BrandStore.Data;
 using BrandStore.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BrandStore.Controllers
@@ -14,16 +16,18 @@ namespace BrandStore.Controllers
     public class BrandsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
 
-        public BrandsController(ApplicationDbContext context)
+        public BrandsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
+            _httpContextAccessor = httpContextAccessor;
         }
 
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Brands.ToListAsync());
+            return View(await _context.Brands.Include(b => b.ApplicationUser).ToListAsync());
         }
         public async Task<IActionResult> Details(int? id)
         {
@@ -32,7 +36,7 @@ namespace BrandStore.Controllers
                 return NotFound();
             }
 
-            var brand = await _context.Brands
+            var brand = await _context.Brands.Include(b => b.ApplicationUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (brand == null)
             {
@@ -52,6 +56,7 @@ namespace BrandStore.Controllers
         {
             if (ModelState.IsValid)
             {
+                brand.ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 brand.Active = true;
                 _context.Add(brand);
                 await _context.SaveChangesAsync();

@@ -2,6 +2,7 @@
 using BrandStore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -9,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace BrandStore.Controllers
@@ -19,19 +21,24 @@ namespace BrandStore.Controllers
 
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _hostEnviroment;
-       
-        public ProductsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+
+        public ProductsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _hostEnviroment = hostEnvironment;
-            
-        }
-        
+            _httpContextAccessor = httpContextAccessor;
 
-       
+
+        }
+
+
+
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Products.Include(b => b.Brand).Include(b => b.Category);
+            var ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var brand = _context.Brands.Where(b => b.ApplicationUserId == ApplicationUserId).FirstOrDefault();
+            var applicationDbContext = _context.Products.Where(b => b.Brand == brand).Include(b => b.Category);
             return View(await applicationDbContext.ToListAsync());
         }
        
@@ -58,7 +65,9 @@ namespace BrandStore.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewData["BrandId"] = new SelectList(_context.Brands.Where(a => a.Active == true), "Id", "Name");
+            var ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var brand = _context.Brands.Where(b => b.ApplicationUserId == ApplicationUserId).FirstOrDefault();
+            ViewBag.BrandId = brand.Id;
             ViewData["CategoryId"] = new SelectList(_context.Categories.Where(a => a.Active == true), "Id", "Name");
             return View();
         }
@@ -71,7 +80,6 @@ namespace BrandStore.Controllers
             {
                 if (product.MainPhotoFile == null || product.SecondPhotoFile == null || product.ThirdPhotoFile == null)
                 {
-                    ViewData["BrandId"] = new SelectList(_context.Brands, "Id", "Name", product.BrandId);
                     ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
                     return View();
                 }
@@ -87,7 +95,7 @@ namespace BrandStore.Controllers
                     for (int i = 0; i < 3; i++)
                     {
                         string path_name = Guid.NewGuid().ToString() + imgext[i];
-                        string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "images", path_name);
+                        string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
 
                         switch (i)
                         {
@@ -126,7 +134,6 @@ namespace BrandStore.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            ViewData["BrandId"] = new SelectList(_context.Brands, "Id", "Name", product.BrandId);
             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
             return View(product);
         }
@@ -174,7 +181,7 @@ namespace BrandStore.Controllers
                         if (imgext[i] != String.Empty)
                         {
                             string path_name = Guid.NewGuid().ToString() + imgext[i];
-                            string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "images", path_name);
+                            string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
 
                             switch (i)
                             {

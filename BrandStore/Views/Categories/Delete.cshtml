@@ -1,9 +1,11 @@
 ﻿@model BrandStore.Models.Category
-
-<div class="container">
+@{
+    Layout = "_LayoutAdmin";
+}
+<div class="main-content">
     <h1>Kategori Sil</h1>
     <hr />
-    
+
     <form asp-action="Create" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-4">
