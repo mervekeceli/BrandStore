@@ -694,3 +694,5 @@ C:\Users\User\Desktop\MerveninGuncel\BrandStore\BrandStore\obj\Debug\net5.0\Bran
 C:\Users\User\Desktop\MerveninGuncel\BrandStore\BrandStore\obj\Debug\net5.0\ref\BrandStore.dll
 C:\Users\User\Desktop\MerveninGuncel\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\MerveninGuncel\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
+C:\Users\User\Desktop\MerveninGuncel\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\CreateBrand.cshtml.g.cs
+C:\Users\User\Desktop\MerveninGuncel\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\BrandIndex.cshtml.g.cs
