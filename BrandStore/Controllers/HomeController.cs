@@ -37,6 +37,16 @@ namespace BrandStore.Controllers
             return View();
         }
 
+        public IActionResult Shop()
+        {
+            return View();
+        }
+		
+		public IActionResult ShopSingle()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult CreateBrand()
         {
