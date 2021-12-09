@@ -69,9 +69,9 @@ namespace BrandStore.Controllers
         
          
         [HttpGet]
-        public async Task<IActionResult> RemoveFromBasket(int? bookId)
+        public async Task<IActionResult> RemoveFromBasket(int? productId)
         {
-            if (bookId == null)
+            if (productId == null)
             {
                 return NotFound();
             }
@@ -83,7 +83,7 @@ namespace BrandStore.Controllers
             if (basket != null)
             {
                 BasketItem basketItem = _context.BasketItems
-                    .Where(x => x.BasketId == basket.Id && x.Active == true && x.ProductId == bookId).FirstOrDefault();
+                    .Where(x => x.BasketId == basket.Id && x.Active == true && x.ProductId == productId).FirstOrDefault();
 
                 if (basketItem != null)
                 {

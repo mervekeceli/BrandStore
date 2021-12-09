@@ -100,6 +100,16 @@ namespace BrandStore.Controllers
         }
 
 
+        [Authorize]
+        public async Task<IActionResult> MyOrder()
+        {
+            List<Basket> baskets = await _context.Baskets
+                .Where(x => x.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && x.Active == false)
+                .ToListAsync();
+
+            return View(baskets);
+        }
+
         [HttpGet]
         public IActionResult CreateBrand()
         {
