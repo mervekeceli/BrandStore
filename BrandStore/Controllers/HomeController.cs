@@ -42,10 +42,63 @@ namespace BrandStore.Controllers
             return View();
         }
 		
-		public IActionResult ShopSingle()
+		public IActionResult ShopSingle(int productId)
         {
-            return View();
+            Product _urun = _context.Products.Where(b => b.Id == productId).FirstOrDefault();
+            return View(_urun);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddProductToBasket(int productId)
+        {
+            var basket = await _context.Baskets
+                .Where(x => x.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && x.Active == true)
+                .FirstOrDefaultAsync();
+
+            Product currentProduct = await _context.Products
+                .Where(x => x.Id == productId && x.Active == true)
+                .FirstOrDefaultAsync();
+
+            if (currentProduct == null) return NotFound();
+
+            if (basket != null)
+            {
+                BasketItem newBasketItem = new BasketItem
+                {
+                    BasketId = basket.Id,
+                    Product = currentProduct,
+                    Active = true
+                };
+
+                _context.Add(newBasketItem);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                Basket newBasket = new Basket
+                {
+                    Status = "YENI",
+                    Active = true,
+                    ApplicationUser = await _userManager.GetUserAsync(User)
+                };
+
+                _context.Add(newBasket);
+                _context.SaveChanges();
+
+                BasketItem newBasketItem = new BasketItem
+                {
+                    BasketId = newBasket.Id,
+                    Product = currentProduct,
+                    Active = true
+                };
+
+                _context.Add(newBasketItem);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index", "Baskets");
+        }
+
 
         [HttpGet]
         public IActionResult CreateBrand()
