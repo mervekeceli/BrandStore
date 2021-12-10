@@ -48,7 +48,7 @@ namespace BrandStore.Controllers
             return View(_urun);
         }
 
-        [HttpPost]
+        //[HttpPost]
         public async Task<IActionResult> AddProductToBasket(int productId)
         {
             var basket = await _context.Baskets

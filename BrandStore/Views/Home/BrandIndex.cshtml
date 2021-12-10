@@ -95,16 +95,8 @@
                                             <img src="~/img/@_urun.MainPhoto" class="card-img rounded-0 img-fluid" >
                                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                                 <ul class="list-unstyled">
-                                                    <li> <form asp-controller="Home" asp-action="AddProductToBasket" method="post">
-                                                        <div class="btn-sec">
-                                                            <button name="productId" value="@_urun.Id" class="btn btn-success text-white">Sepete Ekle</button>
-                                                        </div>
-                                                        </form><i class="far fa-heart"></i></li>
-                                                    <li><form asp-controller="Home" asp-action="ShopSingle" method="post">
-                                                        <div class="btn-sec">
-                                                            <button name="productId" value="@_urun.Id" class="btn btn-success text-white">Detay</button>
-                                                        </div>
-                                                    </form><i class="far fa-eye"></i></li>
+                                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@_urun.Id"><i class="far fa-heart"></i></a></li>
+                                                    <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productId=@_urun.Id"><i class="far fa-eye"></i></a></li>
                                                     <li><a class="btn btn-success text-white mt-2" href="shop-single.html"><i class="fas fa-cart-plus"></i></a></li>
                                                 </ul>
                                             </div>
