@@ -1076,3 +1076,4 @@ C:\Users\User\Desktop\En guncel Guncel Merve\BrandStore\BrandStore\obj\Debug\net
 C:\Users\User\Desktop\En guncel Guncel Merve\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
 C:\Users\User\Desktop\En guncel Guncel Merve\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Baskets\Index.cshtml.g.cs
 C:\Users\User\Desktop\En guncel Guncel Merve\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\MyOrder.cshtml.g.cs
+C:\Users\User\Desktop\En guncel Guncel Merve\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Shared\_LayoutSuperAdmin.cshtml.g.cs

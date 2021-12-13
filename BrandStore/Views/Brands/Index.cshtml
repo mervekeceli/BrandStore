@@ -1,5 +1,7 @@
 ﻿@model IEnumerable<BrandStore.Models.Brand>
-
+@{
+    Layout = "_LayoutSuperAdmin";
+}
 
 <div class="main-content">
     <section class="static about-sec">
@@ -29,6 +31,9 @@
                         <tr>
                             <td>
                                 @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Description)
                             </td>
                             @if (item.Active == true)
                             {

@@ -1,11 +1,13 @@
 ﻿using BrandStore.Data;
 using BrandStore.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,12 +18,11 @@ namespace BrandStore.Controllers
     {
         
         private readonly ApplicationDbContext _context;
-        
-        
-        public CategoriesController(ApplicationDbContext context)
+        private readonly IWebHostEnvironment _hostEnviroment;
+        public CategoriesController(ApplicationDbContext context, IWebHostEnvironment hostEnviroment)
         {
             _context = context;
-           
+            _hostEnviroment = hostEnviroment;
         }
      
         
@@ -66,6 +67,32 @@ namespace BrandStore.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (category.PhotoFile == null )
+                {
+                    ViewData["MainCategoryId"] = new SelectList(_context.MainCategories, "Id", "Name", category.MainCategoryId);
+                    return View();
+                }
+
+                string imgext;
+
+                imgext = Path.GetExtension(category.PhotoFile.FileName);
+               
+
+                if (imgext == ".jpg" || imgext == ".png")
+                {
+                    
+                        string path_name = Guid.NewGuid().ToString() + imgext;
+                        string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
+                        category.Photo = path_name;
+                        using (var uploadimg = new FileStream(saveimg, FileMode.Create))
+                        {
+                           await category.PhotoFile.CopyToAsync(uploadimg);
+                        }
+                               
+                           
+                    
+                }
+
                 category.Active = true;
                 _context.Add(category);
                 await _context.SaveChangesAsync();
@@ -106,6 +133,36 @@ namespace BrandStore.Controllers
 
             if (ModelState.IsValid)
             {
+
+                string imgext ;
+
+                imgext = category.PhotoFile == null ? String.Empty : Path.GetExtension(category.PhotoFile.FileName);
+                
+
+                if (imgext == ".jpg" || imgext == ".png" || imgext == String.Empty)
+                {
+                    
+                        if (imgext != String.Empty)
+                        {
+                            string path_name = Guid.NewGuid().ToString() + imgext;
+                            string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
+
+                            category.Photo = path_name;
+                            using (var uploadimg = new FileStream(saveimg, FileMode.Create))
+                            {
+                                 await category.PhotoFile.CopyToAsync(uploadimg);
+                            }
+                                    
+                              
+                        }
+                }
+                else
+                {
+
+                    ViewData["MainCategoryId"] = new SelectList(_context.MainCategories.Where(a => a.Active == true), "Id", "Name", category.MainCategoryId);
+                    return View();
+                }
+
                 try
                 {
                     _context.Update(category);
@@ -124,6 +181,8 @@ namespace BrandStore.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            
+            
 
             ViewData["MainCategoryId"] = new SelectList(_context.MainCategories, "Id", "Name", category.MainCategoryId);
            
