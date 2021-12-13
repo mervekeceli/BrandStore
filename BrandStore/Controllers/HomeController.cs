@@ -127,7 +127,8 @@ namespace BrandStore.Controllers
                 await _userManager.AddToRoleAsync(user, "Admin");
                 _context.Add(brand);
                 await _context.SaveChangesAsync();
-
+                //return RedirectToAction(nameof(Index));
+                //Calismiyor 
             }
             return View(brand);
         }
