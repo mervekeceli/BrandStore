@@ -34,18 +34,27 @@ namespace BrandStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var db = _context.Categories.Include(f => f.MainCategory);
+            return View(db.ToList());
         }
 
         public IActionResult Shop()
         {
-            return View();
+            var db = _context.Products.Include(f => f.Brand).Include(f => f.Category);
+            return View(db.ToList());
         }
 		
 		public IActionResult ShopSingle(int productId)
         {
             Product _urun = _context.Products.Where(b => b.Id == productId).FirstOrDefault();
             return View(_urun);
+        }
+
+        public async Task<IActionResult> CategoriesShop(String name)
+        {
+            List<Product> _urunler = await _context.Products.Where(b => b.Category.Name == name).ToListAsync();
+            return View(_urunler);
+
         }
 
         //[HttpPost]

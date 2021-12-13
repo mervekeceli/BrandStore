@@ -12,12 +12,27 @@
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
+                <div class="form-group">
+                    <label asp-for="PhotoFile" class="control-label"></label>
+                    <input asp-for="PhotoFile" class="form-control" />
+                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
+                </div>
             </div>
         </div>
         <div class="row">
             <div class=" col-md-4">
                 <div class="form-group">
                     <input type="submit" value="Ekle" class="btn btn-block btn-primary" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+    <form asp-action="Index">
+        <div class="row">
+            <div class=" col-md-8">
+                <div class="form-group">
+                    <input type="submit" value="Listeye Don" class="btn btn-block btn-primary" />
                 </div>
             </div>
 

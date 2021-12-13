@@ -22,6 +22,9 @@
                             @Html.DisplayNameFor(model => model.Stock)
                         </th>
                         <th>
+                            @Html.DisplayNameFor(model => model.Size)
+                        </th>
+                        <th>
                             @Html.DisplayNameFor(model => model.BrandId)
                         </th>
                         <th>
@@ -39,45 +42,48 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr>
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Stock)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Size)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Brand.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Category.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CreateDate)
+                        </td>
+                        @if (item.Active == true)
+                        {
+                            <td><span class="circle green"></span></td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Name)
+                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
                             </td>
+                        }
+                        else
+                        {
+                            <td><span class="circle red"></span></td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.Price)
+                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
                             </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Stock)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Brand.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Category.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.CreateDate)
-                            </td>
-                            @if (item.Active == true)
-                            {
-                                <td><span class="circle green"></span></td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
-                                </td>
-                            }
-                            else
-                            {
-                                <td><span class="circle red"></span></td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
-                                </td>
 
-                            }
-                        </tr>
+                        }
+                    </tr>
                     }
                 </tbody>
             </table>

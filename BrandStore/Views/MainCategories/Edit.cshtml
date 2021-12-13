@@ -19,6 +19,12 @@
                 <div class="form-group">
                     <input type="submit" value="Kaydet" class="btn btn-block btn-primary" />
                 </div>
+                <div class="form-group">
+                    <label asp-for="PhotoFile" class="control-label"></label>
+                    <input asp-for="PhotoFile" class="form-control" />
+                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
+                </div>
+                <input style="display:none" asp-for="Photo" />
             </form>
         </div>
     </div>

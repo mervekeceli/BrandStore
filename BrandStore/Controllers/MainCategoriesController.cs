@@ -51,13 +51,12 @@ namespace BrandStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Active")] MainCategory mainCategory)
+        public async Task<IActionResult> Create(MainCategory mainCategory)
         {
             if (ModelState.IsValid)
             {
                 if (mainCategory.PhotoFile == null)
                 {
-                    
                     return View();
                 }
 
@@ -76,9 +75,6 @@ namespace BrandStore.Controllers
                     {
                         await mainCategory.PhotoFile.CopyToAsync(uploadimg);
                     }
-
-
-
                 }
                 mainCategory.Active = true;
                 _context.Add(mainCategory);
@@ -103,9 +99,6 @@ namespace BrandStore.Controllers
             }
             return View(mainCategory);
         }
-
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
