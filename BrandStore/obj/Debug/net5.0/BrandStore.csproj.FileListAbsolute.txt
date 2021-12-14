@@ -1655,3 +1655,4 @@ C:\Users\User\Desktop\Guncel Brand\BrandStore\BrandStore\obj\Debug\net5.0\BrandS
 C:\Users\User\Desktop\Guncel Brand\BrandStore\BrandStore\obj\Debug\net5.0\ref\BrandStore.dll
 C:\Users\User\Desktop\Guncel Brand\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\Guncel Brand\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
+C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\CategoriesShop.cshtml.g.cs

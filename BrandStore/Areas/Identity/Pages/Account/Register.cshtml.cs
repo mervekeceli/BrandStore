@@ -47,6 +47,16 @@ namespace BrandStore.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+            [Display(Name="Name")]
+            public string Name { get; set; }
+            
+
+            [Required]
+            [Display(Name="Lastname")]
+            public string Lastname { get; set; }
+
+
+            [Required]
             [EmailAddress]
             [Display(Name = "Email")]
             public string Email { get; set; }
@@ -75,7 +85,7 @@ namespace BrandStore.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email };
+                var user = new ApplicationUser { Name = Input.Name, Lastname = Input.Lastname, UserName = Input.Email, Email = Input.Email};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

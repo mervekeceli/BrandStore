@@ -11,5 +11,6 @@ namespace BrandStore.Areas.Identity.Data
     {
         public string Name { get; set; }
         public string Lastname { get; set; }
+
     }
 }
