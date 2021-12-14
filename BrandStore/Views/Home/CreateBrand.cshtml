@@ -1,8 +1,8 @@
 ﻿@model BrandStore.Models.Brand
 
-@*enctype="multipart/form-data"*@
+
 <div class="main-content">
-    <form asp-action="CreateBrand">
+    <form asp-action="CreateBrand" method="post" enctype="multipart/form-data">
         <div class="row">
             <div class="col-md-4">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>

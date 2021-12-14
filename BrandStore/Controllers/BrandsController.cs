@@ -55,7 +55,7 @@ namespace BrandStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Active")] Brand brand)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,PhotoFile,Active")] Brand brand)
         {
             if (ModelState.IsValid)
             {

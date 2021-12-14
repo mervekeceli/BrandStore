@@ -2,6 +2,7 @@
 using BrandStore.Data;
 using BrandStore.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -23,13 +25,15 @@ namespace BrandStore.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IWebHostEnvironment _hostEnviroment;
 
-        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager)
+        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager, IWebHostEnvironment hostEnviroment)
         {
             _logger = logger;
             _context = context;
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
+            _hostEnviroment = hostEnviroment;
         }
 
         public IActionResult Index()
@@ -126,18 +130,35 @@ namespace BrandStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBrand([Bind("Id,Name,Description,Photo,Active")] Brand brand)
+        public async Task<IActionResult> CreateBrand([Bind("Id,Name,Description,PhotoFile,Active")] Brand brand)
         {
             if (ModelState.IsValid)
             {
+                if (brand.PhotoFile == null)
+                {
+                    return View();
+                }
+                string imgext;
+                imgext = Path.GetExtension(brand.PhotoFile.FileName);
+
+
+                if (imgext == ".jpg" || imgext == ".png")
+                {
+
+                    string path_name = Guid.NewGuid().ToString() + imgext;
+                    string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
+                    brand.Photo = path_name;
+                    using (var uploadimg = new FileStream(saveimg, FileMode.Create))
+                    {
+                        await brand.PhotoFile.CopyToAsync(uploadimg);
+                    }
+
+                }
                 brand.ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 brand.Active = true;
-                var user = await _userManager.FindByIdAsync(brand.ApplicationUserId);
-                await _userManager.AddToRoleAsync(user, "Admin");
                 _context.Add(brand);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-                //Calismiyor 
             }
             return View(brand);
         }
