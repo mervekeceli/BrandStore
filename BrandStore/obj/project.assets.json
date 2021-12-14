@@ -7464,19 +7464,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\merve\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\merve\\Desktop\\theme\\tasarim\\BrandStore\\BrandStore\\BrandStore.csproj",
+      "projectUniqueName": "C:\\Users\\User\\Desktop\\Guncel Brand\\BrandStore\\BrandStore\\BrandStore.csproj",
       "projectName": "BrandStore",
-      "projectPath": "C:\\Users\\merve\\Desktop\\theme\\tasarim\\BrandStore\\BrandStore\\BrandStore.csproj",
-      "packagesPath": "C:\\Users\\merve\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\merve\\Desktop\\theme\\tasarim\\BrandStore\\BrandStore\\obj\\",
+      "projectPath": "C:\\Users\\User\\Desktop\\Guncel Brand\\BrandStore\\BrandStore\\BrandStore.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\Desktop\\Guncel Brand\\BrandStore\\BrandStore\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\merve\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7553,7 +7553,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
