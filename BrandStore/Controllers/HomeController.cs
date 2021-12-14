@@ -126,7 +126,7 @@ namespace BrandStore.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateBrand([Bind("Id,Name,Description,Active")] Brand brand)
+        public async Task<IActionResult> CreateBrand([Bind("Id,Name,Description,Photo,Active")] Brand brand)
         {
             if (ModelState.IsValid)
             {
@@ -136,7 +136,7 @@ namespace BrandStore.Controllers
                 await _userManager.AddToRoleAsync(user, "Admin");
                 _context.Add(brand);
                 await _context.SaveChangesAsync();
-                //return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(Index));
                 //Calismiyor 
             }
             return View(brand);

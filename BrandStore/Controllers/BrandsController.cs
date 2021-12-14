@@ -1,11 +1,13 @@
 ﻿using BrandStore.Data;
 using BrandStore.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -17,12 +19,13 @@ namespace BrandStore.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IWebHostEnvironment _hostEnviroment;
 
-
-        public BrandsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor)
+        public BrandsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor,IWebHostEnvironment hostEnviroment)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
+            _hostEnviroment = hostEnviroment;
         }
 
         public async Task<IActionResult> Index()
@@ -56,6 +59,28 @@ namespace BrandStore.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (brand.PhotoFile == null)
+                {
+                    return View();
+                }
+                string imgext;
+                imgext = Path.GetExtension(brand.PhotoFile.FileName);
+
+
+                if (imgext == ".jpg" || imgext == ".png")
+                {
+
+                    string path_name = Guid.NewGuid().ToString() + imgext;
+                    string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
+                    brand.Photo = path_name;
+                    using (var uploadimg = new FileStream(saveimg, FileMode.Create))
+                    {
+                        await brand.PhotoFile.CopyToAsync(uploadimg);
+                    }
+
+
+
+                }
                 brand.ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 brand.Active = true;
                 _context.Add(brand);
@@ -96,6 +121,31 @@ namespace BrandStore.Controllers
 
             if (ModelState.IsValid)
             {
+                string imgext;
+
+                imgext = brand.PhotoFile == null ? String.Empty : Path.GetExtension(brand.PhotoFile.FileName);
+
+
+                if (imgext == ".jpg" || imgext == ".png" || imgext == String.Empty)
+                {
+
+                    if (imgext != String.Empty)
+                    {
+                        string path_name = Guid.NewGuid().ToString() + imgext;
+                        string saveimg = Path.Combine(_hostEnviroment.WebRootPath, "img", path_name);
+
+                        brand.Photo = path_name;
+                        using (var uploadimg = new FileStream(saveimg, FileMode.Create))
+                        {
+                            await brand.PhotoFile.CopyToAsync(uploadimg);
+                        }
+
+
+                    }
+                }
+                else
+                    return View();
+                
                 try
                 {
                     _context.Update(brand);

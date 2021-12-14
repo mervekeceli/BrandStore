@@ -10,7 +10,7 @@
         @if (!User.IsInRole("Admin") && !User.IsInRole("SuperAdmin"))
         {
             <li class="nav-item">
-                <form id="logoutForm" class="form-inline" asp-controller="Home" asp-action="Create">
+                <form id="logoutForm" class="form-inline" asp-controller="Home" asp-action="CreateBrand" method="get">
                     <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Aramiza Katil</button>
                 </form>
             </li>
