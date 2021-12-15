@@ -38,7 +38,7 @@ namespace BrandStore.Controllers
 
         public IActionResult Index()
         {
-            var db = _context.Categories.Include(f => f.MainCategory);
+            var db = _context.Brands;
             return View(db.ToList());
         }
 
