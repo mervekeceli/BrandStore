@@ -112,6 +112,58 @@ namespace BrandStore.Controllers
             return RedirectToAction("Index", "Baskets");
         }
 
+        public async Task<IActionResult> AddProductToFavorites(int productId)
+        {
+            var favorite = await _context.Favorites
+                .Where(x => x.ApplicationUserId == User.FindFirstValue(ClaimTypes.NameIdentifier) && x.Active == true)
+                .FirstOrDefaultAsync();
+
+            Product currentProduct = await _context.Products
+                .Where(x => x.Id == productId && x.Active == true)
+                .FirstOrDefaultAsync();
+
+            if (currentProduct == null) return NotFound();
+
+            if (favorite != null)
+            {
+                FavoriteItem newFavorteItem = new FavoriteItem
+                {
+                    FavoriteId = favorite.Id,
+                    Product = currentProduct,
+                    Active = true
+                };
+
+                _context.Add(newFavorteItem);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                Favorite newFavorite = new Favorite
+                {
+                    Status = "YENI",
+                    Active = true,
+                    ApplicationUser = await _userManager.GetUserAsync(User)
+                };
+
+                _context.Add(newFavorite);
+                _context.SaveChanges();
+
+                FavoriteItem newFavoriteItem = new FavoriteItem
+                {
+                    FavoriteId = favorite.Id,
+                    Product = currentProduct,
+                    Active = true
+                };
+
+                _context.Add(newFavoriteItem);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index", "Favorites");
+        }
+
+
+
 
         [Authorize]
         public async Task<IActionResult> MyOrder()

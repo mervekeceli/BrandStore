@@ -27,6 +27,9 @@ namespace BrandStore.Data
         public DbSet<Basket> Baskets { get; set; }
 
         public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
+
+        public DbSet<FavoriteItem> FavoriteItems { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

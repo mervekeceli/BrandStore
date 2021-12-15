@@ -1849,3 +1849,4 @@ C:\Users\User\Desktop\Gungunguncel\BrandStore\BrandStore\obj\Debug\net5.0\BrandS
 C:\Users\User\Desktop\Gungunguncel\BrandStore\BrandStore\obj\Debug\net5.0\ref\BrandStore.dll
 C:\Users\User\Desktop\Gungunguncel\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\Gungunguncel\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
+C:\Users\User\Desktop\Gungunguncel\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Favorites\Index.cshtml.g.cs

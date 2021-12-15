@@ -19,6 +19,8 @@ namespace BrandStore.Models
 
         public int Stock { get; set; }
 
+        public String Color { get; set; }
+
         public String Size { get; set; }
 
         public int CategoryId { get; set; }
