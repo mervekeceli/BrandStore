@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BrandStore.Models.Brand>
+﻿@model BrandStore.Models.MultipleViewModel;
 @{ ViewData["Title"] = "Home Page"; }
 
 <!DOCTYPE html>
@@ -19,13 +19,6 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">
-    <!--
-
-    TemplateMo 559 Zay Shop
-
-    https://templatemo.com/tm-559-zay-shop
-
-    -->
 </head>
 
 <body>
@@ -40,26 +33,25 @@
 
         <div class="carousel-inner">
 
-            @foreach (var item in Model)
+            @foreach (var item in Model.BrandViewModel)
             {
-            <div class="@(item.Id==44 ? "carousel-item active" : "carousel-item")">
-                <div class="container">
-                    <div class="row p-5">
-                        <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
-                            <img class="img-fluid" src="~/img/@item.Photo" alt="">
-                        </div>
-                        <div class="col-lg-6 mb-0 d-flex align-items-center">
-                            <div class="text-align-left align-self-center">
-                                <h3 class="h2 text-success"><b>Brand Store</b> eCommerce</h3>
-                                <h3 class="h2">Tiny and Perfect eCommerce Template</h3>
-                                <p>
-                                    @item.Description
-                                </p>
+                <div class="@(item.Id==5? "carousel-item active" : "carousel-item")">
+                    <div class="container">
+                        <div class="row p-5">
+                            <div class="mx-auto col-md-8 col-lg-6 order-lg-last">
+                                <img class="img-fluid" src="~/img/@item.Photo" alt="">
+                            </div>
+                            <div class="col-lg-6 mb-0 d-flex align-items-center">
+                                <div class="text-align-left align-self-center">
+                                    <h3 class="h2 text-success"><b>Brand Store</b> eCommerce</h3>
+                                    <p>
+                                        @item.Description
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             }
         </div>
 
@@ -75,7 +67,7 @@
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Categories of The Month</h1>
+                <h1 class="h1">Popular Categories</h1>
                 <p>
                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                     deserunt mollit anim id est laborum.
@@ -83,24 +75,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="~/assets/img/category_img_01.jpg" class="rounded-circle img-fluid border"></a>
-                <h5 class="text-center mt-3 mb-3">Mango</h5>
-                <p class="text-center"><a href="Home/BrandIndex?brand=Adidas" class="btn btn-success">Mangodan Alisveris Yap</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="~/assets/img/category_img_02.jpg" class="rounded-circle img-fluid border" href="Home/Shop"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Shoes</h2>
-                @*
-                    Burada filtreleme yapılcak.
-                *@
-                <p class="text-center"><a href="Home/Shop" class="btn btn-success">Go Shop</a></p>
-            </div>
-            <div class="col-12 col-md-4 p-5 mt-3">
-                <a href="#"><img src="~/assets/img/category_img_03.jpg" class="rounded-circle img-fluid border" href="Home/Shop"></a>
-                <h2 class="h5 text-center mt-3 mb-3">Accessories</h2>
-                <p class="text-center"><a href="Home/Shop" class="btn btn-success">Go Shop</a></p>
-            </div>
+
+            @foreach (var item in Model.CategoryViewModel)
+            {
+                <div class="col-12 col-md-3 p-5 mt-3">
+                    <a href="#"><img src="~/img/@item.Photo" class="rounded-circle img-fluid border" href="Home/Shop"></a>
+                    <h2 class="h5 text-center mt-3 mb-3">@item.Name</h2>
+                    <p class="text-center"><a href="Home/CategoriesShop?name=@item.Name" class="btn btn-success">Go Shop</a></p>
+                </div>
+            }
+
         </div>
     </section>
     <!-- End Categories of The Month -->

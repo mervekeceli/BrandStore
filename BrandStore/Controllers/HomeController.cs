@@ -38,8 +38,14 @@ namespace BrandStore.Controllers
 
         public IActionResult Index()
         {
-            var db = _context.Brands;
-            return View(db.ToList());
+            var brands = _context.Brands;
+            var categories = _context.Categories;
+
+            MultipleViewModel multipleViewModel = new MultipleViewModel();
+            multipleViewModel.BrandViewModel = brands;
+            multipleViewModel.CategoryViewModel = categories;
+
+            return View(multipleViewModel);
         }
 
         public IActionResult Shop()
