@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace BrandStore.Controllers
 {
-    [Authorize(Roles = "SuperAdmin")]
+    
     public class BrandsController : Controller
     {
         private readonly ApplicationDbContext _context;

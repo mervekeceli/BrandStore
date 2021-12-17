@@ -9,5 +9,6 @@ namespace BrandStore.Models
     {
         public IEnumerable<Brand> BrandViewModel { get; set; }
         public IEnumerable<Category> CategoryViewModel { get; set; }
+        public IEnumerable<Product> ProductViewModel { get; set; }
     }
 }

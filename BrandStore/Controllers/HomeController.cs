@@ -56,8 +56,8 @@ namespace BrandStore.Controllers
 		
 		public IActionResult ShopSingle(int productId)
         {
-            Product _urun = _context.Products.Where(b => b.Id == productId).FirstOrDefault();
-            return View(_urun);
+            Product product = _context.Products.Where(b => b.Id == productId).FirstOrDefault();
+            return View(product);
         }
 
         public async Task<IActionResult> CategoriesShop(String name)
