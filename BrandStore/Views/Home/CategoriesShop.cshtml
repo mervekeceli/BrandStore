@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<BrandStore.Models.Product>
+@using Microsoft.AspNetCore.Http.Extensions
+
 @{
     ViewData["Title"] = "CategoriesShop";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -22,9 +24,9 @@
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">
-    
+
     <style>
-        .figure{
+        .figure {
             display: flex;
         }
     </style>
@@ -62,22 +64,22 @@
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Gender
+                            Renk
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Men</a></li>
-                            <li><a class="text-decoration-none" href="#">Women</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&color=Beyaz">Beyaz</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&color=Siyah">Siyah</a></li>
                         </ul>
                     </li>
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Sale
+                            Beden
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Sport</a></li>
-                            <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&size=L">L</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&size=37">37</a></li>
                         </ul>
                     </li>
                     <li class="pb-3">
@@ -89,6 +91,17 @@
                             <li><a class="text-decoration-none" href="#">Bag</a></li>
                             <li><a class="text-decoration-none" href="#">Sweather</a></li>
                             <li><a class="text-decoration-none" href="#">Sunglass</a></li>
+                        </ul>
+                    </li>
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            Product
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&price=0-25">0-25</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&price=25-300">25-300</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&price=300-500">300-500</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -132,7 +145,7 @@
                                             <figure>
                                                 <img class="card-img rounded-0 img-fluid" src="~/img/@item.MainPhoto">
                                             </figure>
-                                            
+
                                             <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                                 <ul class="list-unstyled">
                                                     <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@item.Id"><i class="far fa-heart"></i></a></li>

@@ -39,6 +39,12 @@ namespace BrandStore
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddHttpContextAccessor();
             services.AddSingleton<IEmailSender, EmailSender>();
+            services.AddRazorPages()
+                   .AddRazorPagesOptions(options =>
+                   {
+                       options.Conventions.AuthorizeFolder("/Baskets");
+                       options.Conventions.AllowAnonymousToPage("/Home");
+                   });
 
         }
 
