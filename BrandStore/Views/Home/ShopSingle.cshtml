@@ -3,420 +3,984 @@
     var product1 = Model;
 }
 
-    <!DOCTYPE html>
-    <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
-    <head>
-        <title>Brand Store - Product Detail Page</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <title>Brand Store - Product Detail Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-        <link rel="apple-touch-icon" href="~/assets/img/apple-icon.png">
-        <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
+    <link rel="apple-touch-icon" href="~/assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="~/assets/img/favicon.ico">
 
-        <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="~/assets/css/templatemo.css">
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/templatemo.css">
 
 
-        <!-- Load fonts style after rendering the layout styles -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-        <link rel="stylesheet" href="~/assets/css/fontawesome.css/fontawesome.min.css">
+    <!-- Load fonts style after rendering the layout styles -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="~/assets/css/fontawesome.css/fontawesome.min.css">
 
-        <!-- Slick -->
-        <link rel="stylesheet" type="text/css" href="~/assets/css/slick.min.css">
-        <link rel="stylesheet" type="text/css" href="~/assets/css/slick-theme.css">
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-        <style>
-            .carousel-product {
-                max-height: 500px;
-            }
+    <!-- Slick -->
+    <link rel="stylesheet" type="text/css" href="~/assets/css/slick.min.css">
+    <link rel="stylesheet" type="text/css" href="~/assets/css/slick-theme.css">
 
-            .carousel-product1 {
-                max-height: 150px;
-            }
+    <link href="~/magiczoomplus/magiczoomplus.css" rel="stylesheet" type="text/css" media="screen" />
+    <script src="~/magiczoomplus/magiczoomplus.js" type="text/javascript"></script>
 
-            .carousel-product1-details {
-                max-height: 600px;
-                width: auto;
-            }
-        </style>
-    </head>
+    <style type="text/css">
 
-    <body>
-        @if (Model == null)
-        {
-            <span>no items found</span>
+        .carousel-product {
+            max-height: 500px;
         }
-        else
-        {
 
-            <!-- Open Content  -->
-            <section class="bg-light">
-                <div class="container pb-5">
-                    <div class="row">
-                        <div class="col-lg-5 mt-5">
-                            <div class="card mb-3">
-                                <img class="carousel-product img-fluid" src="~/img/@product1.MainPhoto" alt="Card image cap" id="product-detail">
-                            </div>
-                            <div class="row">
-                                <!--Start Controls-->
-                                <div class="col-1 align-self-center">
-                                    <a href="#multi-item-example" role="button" data-bs-slide="prev">
-                                        <i class="text-dark fas fa-chevron-left"></i>
-                                        <span class="sr-only">Previous</span>
-                                    </a>
-                                </div>
-                                <!--End Controls-->
-                                <!--Start Carousel Wrapper-->
-                                <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
-                                    <!--Start Slides-->
-                                    <div class="carousel-inner product-links-wap" role="listbox">
+        .carousel-product1 {
+            max-height: 150px;
+        }
 
-                                        <!--First slide-->
-                                        <div class="carousel-item active">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.MainPhoto" alt="Product Image 2">
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.SecondPhoto" alt="Product Image 2">
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.ThirdPhoto" alt="Product Image 3">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/.First slide-->
-                                        <!--Second slide-->
-                                        <div class="carousel-item">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.MainPhoto" alt="Product Image 2">
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.SecondPhoto" alt="Product Image 2">
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.ThirdPhoto" alt="Product Image 3">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/.Second slide-->
-                                        <!--Second slide-->
-                                        <div class="carousel-item">
-                                            <div class="row">
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.MainPhoto" alt="Product Image 2">
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.SecondPhoto" alt="Product Image 2">
-                                                    </a>
-                                                </div>
-                                                <div class="col-4">
-                                                    <a href="#">
-                                                        <img class="carousel-product1 img-fluid" src="~/img/@product1.ThirdPhoto" alt="Product Image 3">
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--/.Second slide-->
-                                    </div>
-                                    <!--End Slides-->
-                                </div>
-                                <!--End Carousel Wrapper-->
-                                <!--Start Controls-->
-                                <div class="col-1 align-self-center">
-                                    <a href="#multi-item-example" role="button" data-bs-slide="next">
-                                        <i class="text-dark fas fa-chevron-right"></i>
-                                        <span class="sr-only">Next</span>
-                                    </a>
-                                </div>
-                                <!--End Controls-->
-                            </div>
-                        </div>
-                        <!-- col end -->
-                        <div class="col-lg-7 mt-5">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h1 class="h2">@product1.Name</h1>
-                                    <p class="h3 py-2">@product1.Price</p>
-                                    <p class="py-2">
-                                        <i class="fa fa-star text-warning"></i>
-                                        <i class="fa fa-star text-warning"></i>
-                                        <i class="fa fa-star text-warning"></i>
-                                        <i class="fa fa-star text-warning"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
-                                    </p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <h6>Brand:</h6>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p class="text-muted"><strong>Easy Wear</strong></p>
-                                        </li>
-                                    </ul>
+        .carousel-product1-details {
+            max-height: 600px;
+            width: auto;
+        }
 
-                                    <h6>Description:</h6>
-                                    <p>@Model.Description</p>
-                                    <ul class="list-inline">
-                                        <li class="list-inline-item">
-                                            <h6>Avaliable Color :</h6>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <p class="text-muted"><strong>White / Black</strong></p>
-                                        </li>
-                                    </ul>
+        .geeks:hover img {
+            transform: scale(1.5);
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            position: absolute;
+            left: 0;
+            right: 0;
+            min-height: 100%;
+            background: #fff;
+            margin: 0;
+            padding: 0;
+            font-size: 100%;
+        }
+
+        body, td {
+            font-family: 'Helvetica Neue', Helvetica, 'Lucida Grande', Tahoma, Arial, Verdana, sans-serif;
+            line-height: 1.5em;
+            -webkit-text-rendering: geometricPrecision;
+            text-rendering: geometricPrecision;
+        }
+
+        h1 {
+            font-size: 1.5em;
+            font-weight: normal;
+            color: #555;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            font-weight: normal;
+            color: #555;
+        }
+
+            h2.caption {
+                margin: 2.5em 0 0;
+            }
+
+        h3 {
+            font-size: 1.1em;
+            font-weight: normal;
+            color: #555;
+        }
+
+            h3.pad {
+                margin: 2em 0 1em;
+            }
+
+        h4 {
+            font-size: 1em;
+            font-weight: normal;
+            color: #555;
+        }
+
+        p.pad {
+            margin-top: 1.5em;
+        }
+
+        a {
+            outline: none;
+        }
 
 
-                                    <form action="" method="GET">
-                                        <input type="hidden" name="product-title" value="Activewear">
-                                        <div class="row">
-                                            <div class="col-auto">
-                                                <ul class="list-inline pb-3">
-                                                    <li class="list-inline-item">
-                                                        Size :
-                                                        <input type="hidden" name="product-size" id="product-size" value="S">
-                                                    </li>
-                                                    @foreach (var item in ViewBag.Bedenler)
-                                                    {
-                                                        <li class="list-inline-item"><span class="btn btn-success btn-size">@item</span></li>
-                                                    }
-                                                </ul>
-                                            </div>
-                                            <div class="col-auto">
-                                                <ul class="list-inline pb-3">
-                                                    <li class="list-inline-item text-right">
-                                                        Quantity
-                                                        <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                                    </li>
-                                                    <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                                    <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                                    <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="row pb-3">
-                                            <div class="col d-grid">
-                                                <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Satin Al</button>
-                                            </div>
-                                            <div class="col d-grid">
-                                                <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Sepete Ekle</button>
-                                            </div>
-                                        </div>
-                                    </form>
+        .cfg-btn {
+            background-color: rgb(55, 181, 114);
+            color: #fff;
+            border: 0;
+            box-shadow: 0 0 1px 0px rgba(0,0,0,0.3);
+            outline: 0;
+            cursor: pointer;
+            width: 200px;
+            padding: 10px;
+            font-size: 1em;
+            position: relative;
+            display: inline-block;
+            margin: 10px auto;
+        }
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Close Content -->
+            .cfg-btn:hover:not([disabled]) {
+                background-color: rgb(37, 215, 120);
+            }
 
-            <section class="container py-5">
-                <div class="row text-center pt-3">
-                    <div class="row text-left p-2 pb-3">
-                        <h4>Related Products</h4>
-                    </div>
-                </div>
-                <div class="row">
+        .mobile-magic .cfg-btn:hover:not([disabled]) {
+            background: rgb(55, 181, 114);
+        }
 
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="~/img/@product1.MainPhoto">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+        .cfg-btn[disabled] {
+            opacity: .5;
+            color: #808080;
+            background: #ddd;
+        }
 
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Beden: @product1.Size</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$@product1.Price</p>
-                            </div>
-                        </div>
-                    </div>
+        .cfg-btn.btn-preview,
+        .cfg-btn.btn-preview:active,
+        .cfg-btn.btn-preview:focus {
+            font-size: 1em;
+            position: relative;
+            display: block;
+            margin: 10px auto;
+        }
 
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="~/img/@product1.MainPhoto">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+        .cfg-btn,
+        .preview,
+        .app-figure,
+        .api-controls,
+        .wizard-settings,
+        .wizard-settings .inner,
+        .wizard-settings .footer,
+        .wizard-settings input,
+        .wizard-settings select {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
 
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>@product1.Size</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$@product1.Price</p>
-                            </div>
-                        </div>
-                    </div>
+        .preview,
+        .wizard-settings {
+            padding: 10px;
+            border: 0;
+            min-height: 1px;
+        }
 
+        .preview {
+            position: relative;
+        }
 
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="~/img/@product1.MainPhoto">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+        .api-controls {
+            text-align: center;
+        }
 
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Beden: @product1.Size</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$@product1.Price</p>
-                            </div>
-                        </div>
-                    </div>
+            .api-controls button,
+            .api-controls button:active,
+            .api-controls button:focus {
+                width: 80px;
+                font-size: .7em;
+                white-space: nowrap;
+            }
 
-                </div>
-            </section>
+        .app-figure {
+            width: 80% !important;
+            margin: 0px auto;
+            border: 0px solid red;
+            padding: 20px;
+            position: relative;
+            text-align: center;
+        }
 
+        .selectors {
+            margin-top: 10px;
+        }
 
-            <!-- Start Script -->
-            <script src="~/assets/js/jquery-1.11.0.min.js"></script>
-            <script src="~/assets/js/jquery-migrate-1.2.1.min.js"></script>
-            <script src="~/assets/js/bootstrap.bundle.min.js"></script>
-            <script src="~/assets/js/templatemo.js"></script>
-            <script src="~/assets/js/custom.js"></script>
-            <!-- End Script -->
-            <!-- Start Slider Script -->
-            <script src="~/assets/js/slick.min.js"></script>
-            <script>
-                $('#carousel-related-product').slick({
-                    infinite: true,
-                    arrows: false,
-                    slidesToShow: 4,
-                    slidesToScroll: 3,
-                    dots: true,
-                    responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 3
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 3
-                        }
+            .selectors .mz-thumb img {
+                max-width: 56px;
+            }
+
+        .app-code-sample {
+            max-width: 80%;
+            margin: 30px auto 0;
+            text-align: center;
+            position: relative;
+        }
+
+            .app-code-sample input[type="radio"] {
+                display: none;
+            }
+
+            .app-code-sample label {
+                display: inline-block;
+                padding: 2px 12px;
+                margin: 0;
+                font-size: .8em;
+                text-decoration: none;
+                cursor: pointer;
+                color: #666;
+                border: 1px solid rgba(136, 136, 136, 0.5);
+                background-color: transparent;
+            }
+
+                .app-code-sample label:hover {
+                    color: #fff;
+                    background-color: rgb(253, 154, 30);
+                    border-color: rgb(253, 154, 30);
+                }
+
+            .app-code-sample input[type="radio"]:checked + label {
+                color: #fff;
+                background-color: rgb(110, 110, 110) !important;
+                border-color: rgba(110, 110, 110, 0.7) !important;
+            }
+
+            .app-code-sample label:first-of-type {
+                border-radius: 4px 0 0 4px;
+                border-right-color: transparent;
+            }
+
+            .app-code-sample label:last-of-type {
+                border-radius: 0 4px 4px 0;
+                border-left-color: transparent;
+            }
+
+            .app-code-sample .app-code-holder {
+                padding: 0;
+                position: relative;
+                border: 1px solid #eee;
+                border-radius: 0px;
+                background-color: #fafafa;
+                margin: 15px 0;
+            }
+
+                .app-code-sample .app-code-holder > div {
+                    display: none;
+                }
+
+                .app-code-sample .app-code-holder pre {
+                    text-align: left;
+                    white-space: pre-line;
+                    border: 0px solid #eee;
+                    border-radius: 0px;
+                    background-color: transparent;
+                    padding: 25px 50px 25px 25px;
+                    margin: 0;
+                    min-height: 25px;
+                }
+
+            .app-code-sample input[type="radio"]:nth-of-type(1):checked ~ .app-code-holder > div:nth-of-type(1) {
+                display: block;
+            }
+
+            .app-code-sample input[type="radio"]:nth-of-type(2):checked ~ .app-code-holder > div:nth-of-type(2) {
+                display: block;
+            }
+
+            .app-code-sample .app-code-holder .cfg-btn-copy {
+                display: none;
+                z-index: -1;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                width: 44px;
+                font-size: .65em;
+                white-space: nowrap;
+                margin: 0;
+                padding: 4px;
+            }
+
+        .copy-msg {
+            font: normal 11px/1.2em 'Helvetica Neue', Helvetica, 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, sans-serif;
+            color: #2a4d14;
+            border: 1px solid #2a4d14;
+            border-radius: 4px;
+            position: absolute;
+            top: 8px;
+            left: 0;
+            right: 0;
+            width: 200px;
+            max-width: 70%;
+            padding: 4px;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        .copy-msg-failed {
+            color: #b80c09;
+            border-color: #b80c09;
+            width: 430px;
+        }
+
+        .mobile-magic .app-code-sample .cfg-btn-copy {
+            display: none;
+        }
+
+        #code-to-copy {
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: -10000px;
+        }
+
+        .lt-ie9-magic .app-code-sample {
+            display: none;
+        }
+
+        .wizard-settings {
+            background-color: #4f4f4f;
+            color: #a5a5a5;
+            position: absolute;
+            right: 0;
+            width: 340px;
+        }
+
+            .wizard-settings .inner {
+                width: 100%;
+                margin-bottom: 30px;
+            }
+
+            .wizard-settings .footer {
+                color: #c7d59f;
+                font-size: .75em;
+                width: 100%;
+                position: relative;
+                vertical-align: bottom;
+                text-align: center;
+                padding: 6px;
+                margin-top: 10px;
+            }
+
+                .wizard-settings .footer a {
+                    color: inherit;
+                    text-decoration: none;
+                }
+
+                    .wizard-settings .footer a:hover {
+                        text-decoration: underline;
                     }
-                    ]
-                });
 
-                $(document).ready(function ($) {
-                    // ----------------------------------------------------- MaxHeight
-                    $(".max_h_c").each(function (j, d) {
-                        var maxHeight = 0;
-                        $(d).find('.max_h').each(function (i, e) {
-                            if (maxHeight < $(e).height()) maxHeight = $(e).height();
+            .wizard-settings a {
+                color: #cc9933;
+            }
 
-                        });
-                        $(d).find('.max_h').height(maxHeight);
-                    });
-                });//-- End Ready
-            </script>
+                .wizard-settings a:hover {
+                    color: #dfb363;
+                }
 
-            <!-- End Slider Script -->
+            .wizard-settings table > tbody > tr > td {
+                vertical-align: top;
+            }
+
+            .wizard-settings table {
+                min-width: 300px;
+                max-width: 100%;
+                font-size: .8em;
+                margin: 0 auto;
+            }
+
+                .wizard-settings table caption {
+                    font-size: 1.5em;
+                    padding: 16px 8px;
+                }
+
+                .wizard-settings table td {
+                    padding: 4px 8px;
+                }
+
+                    .wizard-settings table td:first-child {
+                        white-space: nowrap;
+                    }
+
+                    .wizard-settings table td:nth-child(2) {
+                        text-align: left;
+                    }
+
+                    .wizard-settings table td .values {
+                        color: #a08794;
+                        font-size: 0.8em;
+                        line-height: 1.3em;
+                        display: block;
+                        max-width: 126px;
+                    }
+
+                        .wizard-settings table td .values:before {
+                            content: '';
+                            display: block;
+                        }
+
+            .wizard-settings input,
+            .wizard-settings select {
+                width: 126px;
+            }
+
+            .wizard-settings input {
+                padding: 0px 4px;
+            }
+
+                .wizard-settings input[disabled] {
+                    color: #808080;
+                    background: #a7a7a7;
+                    border: 1px solid #a7a7a7;
+                }
+
+        .preview {
+            width: 70%;
+            float: left;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var mzOptions = {};
+        mzOptions = {
+            onZoomReady: function () {
+                console.log('onReady', arguments[0]);
+            },
+            onUpdate: function () {
+                console.log('onUpdated', arguments[0], arguments[1], arguments[2]);
+            },
+            onZoomIn: function () {
+                console.log('onZoomIn', arguments[0]);
+            },
+            onZoomOut: function () {
+                console.log('onZoomOut', arguments[0]);
+            },
+            onExpandOpen: function () {
+                console.log('onExpandOpen', arguments[0]);
+            },
+            onExpandClose: function () {
+                console.log('onExpandClosed', arguments[0]);
+            }
+        };
+        var mzMobileOptions = {};
+
+        function isDefaultOption(o) {
+            return magicJS.$A(magicJS.$(o).byTag('option')).filter(function (opt) {
+                return opt.selected && opt.defaultSelected;
+            }).length > 0;
         }
 
-    </body>
+        function toOptionValue(v) {
+            if (/^(true|false)$/.test(v)) {
+                return 'true' === v;
+            }
+            if (/^[0-9]{1,}$/i.test(v)) {
+                return parseInt(v, 10);
+            }
+            return v;
+        }
+
+        function makeOptions(optType) {
+            var value = null, isDefault = true, newParams = Array(), newParamsS = '', options = {};
+            magicJS.$(magicJS.$A(magicJS.$(optType).getElementsByTagName("INPUT"))
+                .concat(magicJS.$A(magicJS.$(optType).getElementsByTagName('SELECT'))))
+                .forEach(function (param) {
+                    value = ('checkbox' == param.type) ? param.checked.toString() : param.value;
+
+                    isDefault = ('checkbox' == param.type) ? value == param.defaultChecked.toString() :
+                        ('SELECT' == param.tagName) ? isDefaultOption(param) : value == param.defaultValue;
+
+                    if (null !== value && !isDefault) {
+                        options[param.name] = toOptionValue(value);
+                    }
+                });
+            return options;
+        }
+
+        function updateScriptCode() {
+            var code = '&lt;script&gt;\nvar mzOptions = ';
+            code += JSON.stringify(mzOptions, null, 2).replace(/\"(\w+)\":/g, "$1:") + ';';
+            code += '\n&lt;/script&gt;';
+
+            magicJS.$('app-code-sample-script').changeContent(code);
+        }
+
+        function updateInlineCode() {
+            var code = '&lt;a class="MagicZoom" data-options="';
+            code += JSON.stringify(mzOptions).replace(/\"(\w+)\":(?:\"([^"]+)\"|([^,}]+))(,)?/g, "$1: $2$3; ").replace(/\{([^{}]*)\}/, "$1").replace(/\s*$/, '');
+            code += '"&gt;';
+
+            magicJS.$('app-code-sample-inline').changeContent(code);
+        }
+
+        function applySettings() {
+            MagicZoom.stop('Zoom-1');
+            mzOptions = makeOptions('params');
+            mzMobileOptions = makeOptions('mobile-params');
+            MagicZoom.start('Zoom-1');
+            updateScriptCode();
+            updateInlineCode();
+            try {
+                prettyPrint();
+            } catch (e) { }
+        }
+
+        function copyToClipboard(src) {
+            var
+                copyNode,
+                range, success;
+
+            if (!isCopySupported()) {
+                disableCopy();
+                return;
+            }
+            copyNode = document.getElementById('code-to-copy');
+            copyNode.innerHTML = document.getElementById(src).innerHTML;
+
+            range = document.createRange();
+            range.selectNode(copyNode);
+            window.getSelection().addRange(range);
+
+            try {
+                success = document.execCommand('copy');
+            } catch (err) {
+                success = false;
+            }
+            window.getSelection().removeAllRanges();
+            if (!success) {
+                disableCopy();
+            } else {
+                new magicJS.Message('Settings code copied to clipboard.', 3000,
+                    document.querySelector('.app-code-holder'), 'copy-msg');
+            }
+        }
+
+        function disableCopy() {
+            magicJS.$A(document.querySelectorAll('.cfg-btn-copy')).forEach(function (node) {
+                node.disabled = true;
+            });
+            new magicJS.Message('Sorry, cannot copy settings code to clipboard. Please select and copy code manually.', 3000,
+                document.querySelector('.app-code-holder'), 'copy-msg copy-msg-failed');
+        }
+
+        function isCopySupported() {
+            if (!window.getSelection || !document.createRange || !document.queryCommandSupported) { return false; }
+            return document.queryCommandSupported('copy');
+        }
+    </script>
+
+    <style>
+    </style>
+</head>
+
+<body>
+    @if (Model == null)
+    {
+        <span>no items found</span>
+    }
+    else
+    {
+
+        <!-- Open Content  -->
+        <section class="bg-light">
+            <div class="container pb-5">
+                <div class="row">
+                    <div class="col-lg-5 mt-5">
+                        <div class="app-figure" id="zoom-fig">
+                            <a id="Zoom-1" class="MagicZoom"
+                               href="~/img/@product1.MainPhoto"
+                               data-zoom-image-2x="~/img/@product1.MainPhoto"
+                               data-image-2x="~/img/@product1.MainPhoto">
+                                <img class="carousel-product img-fluid" src="~/img/@product1.MainPhoto" alt="Card image cap" />
+                            </a>
+                        </div>    
+                        
+                        <div class="row">
+                            <!--Start Controls-->
+                            <div class="col-1 align-self-center">
+                                <a href="#multi-item-example" role="button" data-bs-slide="prev">
+                                    <i class="text-dark fas fa-chevron-left"></i>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </div>
+                            <!--End Controls-->
+                            <!--Start Carousel Wrapper-->
+                            <div id="multi-item-example" class="col-10 carousel slide carousel-multi-item" data-bs-ride="carousel">
+                                <!--Start Slides-->
+                                <div class="carousel-inner product-links-wap" role="listbox">
+
+                                    <!--First slide-->
+
+                                    <div class="carousel-item active">
+                                        <div class="row">
+
+                                            <div class="col-4">
+                                                <a data-zoom-id="Zoom-1"
+                                                   href="~/img/@product1.MainPhoto"
+                                                   data-image="~/img/@product1.MainPhoto"
+                                                   data-zoom-image-2x="~/img/@product1.MainPhoto"
+                                                   data-image-2x="~/img/@product1.MainPhoto">
+                                                    <img class="carousel-product1 img-fluid" srcset="~/img/@product1.MainPhoto 2x" src="~/img/@product1.MainPhoto" alt="Product Image 2" />
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a data-zoom-id="Zoom-1"
+                                                   href="~/img/@product1.SecondPhoto"
+                                                   data-image="~/img/@product1.SecondPhoto"
+                                                   data-zoom-image-2x="~/img/@product1.SecondPhoto"
+                                                   data-image-2x="~/img/@product1.SecondPhoto">
+                                                    <img class="carousel-product1 img-fluid" srcset="~/img/@product1.SecondPhoto 2x" src="~/img/@product1.SecondPhoto" alt="Product Image 2" />
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a data-zoom-id="Zoom-1"
+                                                   href="~/img/@product1.ThirdPhoto"
+                                                   data-image="~/img/@product1.ThirdPhoto"
+                                                   data-zoom-image-2x="~/img/@product1.ThirdPhoto"
+                                                   data-image-2x="~/img/@product1.ThirdPhoto">
+                                                    <img class="carousel-product1 img-fluid" srcset="~/img/@product1.ThirdPhoto 2x" src="~/img/@product1.ThirdPhoto" alt="Product Image 2" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.First slide-->
+                                    <!--Second slide-->
+                                    <div class="carousel-item">
+                                        <div class="row">
+
+                                            <div class="col-4">
+                                                <a data-zoom-id="Zoom-1"
+                                                   href="~/img/@product1.MainPhoto"
+                                                   data-image="~/img/@product1.MainPhoto"
+                                                   data-zoom-image-2x="~/img/@product1.MainPhoto"
+                                                   data-image-2x="~/img/@product1.MainPhoto">
+                                                    <img class="carousel-product1 img-fluid" srcset="~/img/@product1.MainPhoto 2x" src="~/img/@product1.MainPhoto" alt="Product Image 2" />
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a data-zoom-id="Zoom-1"
+                                                   href="~/img/@product1.SecondPhoto"
+                                                   data-image="~/img/@product1.SecondPhoto"
+                                                   data-zoom-image-2x="~/img/@product1.SecondPhoto"
+                                                   data-image-2x="~/img/@product1.SecondPhoto">
+                                                    <img class="carousel-product1 img-fluid" srcset="~/img/@product1.SecondPhoto 2x" src="~/img/@product1.SecondPhoto" alt="Product Image 2" />
+                                                </a>
+                                            </div>
+                                            <div class="col-4">
+                                                <a data-zoom-id="Zoom-1"
+                                                   href="~/img/@product1.ThirdPhoto"
+                                                   data-image="~/img/@product1.ThirdPhoto"
+                                                   data-zoom-image-2x="~/img/@product1.ThirdPhoto"
+                                                   data-image-2x="~/img/@product1.ThirdPhoto">
+                                                    <img class="carousel-product1 img-fluid" srcset="~/img/@product1.ThirdPhoto 2x" src="~/img/@product1.ThirdPhoto" alt="Product Image 2" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.Second slide-->
+                                    <!--Second slide-->
+                                    <div class="carousel-item">
+                                        <div class="row">
+                                            <div class="row">
+
+                                                <div class="col-4">
+                                                    <a data-zoom-id="Zoom-1"
+                                                       href="~/img/@product1.MainPhoto"
+                                                       data-image="~/img/@product1.MainPhoto"
+                                                       data-zoom-image-2x="~/img/@product1.MainPhoto"
+                                                       data-image-2x="~/img/@product1.MainPhoto">
+                                                        <img class="carousel-product1 img-fluid" srcset="~/img/@product1.MainPhoto 2x" src="~/img/@product1.MainPhoto" alt="Product Image 2" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <a data-zoom-id="Zoom-1"
+                                                       href="~/img/@product1.SecondPhoto"
+                                                       data-image="~/img/@product1.SecondPhoto"
+                                                       data-zoom-image-2x="~/img/@product1.SecondPhoto"
+                                                       data-image-2x="~/img/@product1.SecondPhoto">
+                                                        <img class="carousel-product1 img-fluid" srcset="~/img/@product1.SecondPhoto 2x" src="~/img/@product1.SecondPhoto" alt="Product Image 2" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-4">
+                                                    <a data-zoom-id="Zoom-1"
+                                                       href="~/img/@product1.ThirdPhoto"
+                                                       data-image="~/img/@product1.ThirdPhoto"
+                                                       data-zoom-image-2x="~/img/@product1.ThirdPhoto"
+                                                       data-image-2x="~/img/@product1.ThirdPhoto">
+                                                        <img class="carousel-product1 img-fluid" srcset="~/img/@product1.ThirdPhoto 2x" src="~/img/@product1.ThirdPhoto" alt="Product Image 2" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--/.Second slide-->
+                                </div>
+                                <!--End Slides-->
+                            </div>
+                            <!--End Carousel Wrapper-->
+                            <!--Start Controls-->
+                            <div class="col-1 align-self-center">
+                                <a href="#multi-item-example" role="button" data-bs-slide="next">
+                                    <i class="text-dark fas fa-chevron-right"></i>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </div>
+                            <!--End Controls-->
+                        </div>
+                    </div>
+                    <!-- col end -->
+                    <div class="col-lg-7 mt-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h1 class="h2">@product1.Name</h1>
+                                <p class="h3 py-2">@product1.Price</p>
+                                <p class="py-2">
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-secondary"></i>
+                                    <span class="list-inline-item text-dark">Rating 4.8 | 36 Comments</span>
+                                </p>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <h6>Brand:</h6>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <p class="text-muted"><strong>Easy Wear</strong></p>
+                                    </li>
+                                </ul>
+
+                                <h6>Description:</h6>
+                                <p>@Model.Description</p>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item">
+                                        <h6>Avaliable Color :</h6>
+                                    </li>
+                                    <li class="list-inline-item">
+                                        <p class="text-muted"><strong>White / Black</strong></p>
+                                    </li>
+                                </ul>
+
+
+                                <form action="" method="GET">
+                                    <input type="hidden" name="product-title" value="Activewear">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <ul class="list-inline pb-3">
+                                                <li class="list-inline-item">
+                                                    Size :
+                                                    <input type="hidden" name="product-size" id="product-size" value="S">
+                                                </li>
+                                                @foreach (var item in ViewBag.Bedenler)
+                                                {
+                                                    <li class="list-inline-item"><span class="btn btn-success btn-size">@item</span></li>
+                                                }
+                                            </ul>
+                                        </div>
+                                        <div class="col-auto">
+                                            <ul class="list-inline pb-3">
+                                                <li class="list-inline-item text-right">
+                                                    Quantity
+                                                    <input type="hidden" name="product-quanity" id="product-quanity" value="1">
+                                                </li>
+                                                <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
+                                                <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
+                                                <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row pb-3">
+                                        <div class="col d-grid">
+                                            <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Satin Al</button>
+                                        </div>
+                                        <div class="col d-grid">
+                                            <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Sepete Ekle</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Close Content -->
+
+        <section class="container py-5">
+            <div class="row text-center pt-3">
+                <div class="row text-left p-2 pb-3">
+                    <h4>Related Products</h4>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-4">
+                    <div class="card mb-4 product-wap rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid" src="~/img/@product1.MainPhoto">
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>Beden: @product1.Size</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$@product1.Price</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 product-wap rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid" src="~/img/@product1.MainPhoto">
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>@product1.Size</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$@product1.Price</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card mb-4 product-wap rounded-0">
+                        <div class="card rounded-0">
+                            <img class="card-img rounded-0 img-fluid" src="~/img/@product1.MainPhoto">
+                            <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                <ul class="list-unstyled">
+                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
+                                    <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+
+                            <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                <li>Beden: @product1.Size</li>
+                                <li class="pt-2">
+                                    <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                    <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                </li>
+                            </ul>
+                            <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                <li>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-warning fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                    <i class="text-muted fa fa-star"></i>
+                                </li>
+                            </ul>
+                            <p class="text-center mb-0">$@product1.Price</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Start Script -->
+        <script src="~/assets/js/jquery-1.11.0.min.js"></script>
+        <script src="~/assets/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+        <script src="~/assets/js/templatemo.js"></script>
+        <script src="~/assets/js/custom.js"></script>
+        <!-- End Script -->
+        <!-- Start Slider Script -->
+        <script src="~/assets/js/slick.min.js"></script>
+
+
+        <!-- End Slider Script -->
+    }
+
+    <script>
+        $('#carousel-related-product').slick({
+            infinite: true,
+            arrows: false,
+            slidesToShow: 4,
+            slidesToScroll: 3,
+            dots: true,
+            responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3
+                }
+            }
+            ]
+        });
+    </script>
+    <div id="code-to-copy"></div>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.min.js"></script>
+    <script>try { prettyPrint(); } catch (e) { }</script>
+</body>
 
 </html>
