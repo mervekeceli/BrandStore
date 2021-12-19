@@ -1,8 +1,10 @@
-﻿using BrandStore.Data;
+﻿using BrandStore.Areas.Identity.Data;
+using BrandStore.Data;
 using BrandStore.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,24 +16,59 @@ using System.Threading.Tasks;
 
 namespace BrandStore.Controllers
 {
-    
+    [Authorize(Roles = "SuperAdmin")]
     public class BrandsController : Controller
     {
         private readonly ApplicationDbContext _context;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly IWebHostEnvironment _hostEnviroment;
+        UserManager<ApplicationUser> _userManager;
 
-        public BrandsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor,IWebHostEnvironment hostEnviroment)
+        public BrandsController(ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager, IWebHostEnvironment hostEnviroment)
         {
             _context = context;
             _httpContextAccessor = httpContextAccessor;
             _hostEnviroment = hostEnviroment;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
         {
             return View(await _context.Brands.Include(b => b.ApplicationUser).ToListAsync());
         }
+
+        public async Task<IActionResult> NewBrandRequests()
+        {
+            List<Brand> _brands = await _context.Brands.Include(b => b.ApplicationUser).Where(b => b.Active == false).ToListAsync();
+            return View(_brands);
+        }
+
+
+        public async Task<IActionResult> NewBrandRequests2(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var brand = await _context.Brands.Include(b => b.ApplicationUser)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (brand == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                var user = await _userManager.FindByIdAsync(brand.ApplicationUserId);
+                await _userManager.AddToRoleAsync(user, "Admin");
+                brand.Active = true;
+                _context.Update(brand);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

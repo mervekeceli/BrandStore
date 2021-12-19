@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<BrandStore.Models.Product>
+@using Microsoft.AspNetCore.Http.Extensions
 @{
     ViewData["Title"] = "Shop";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -26,7 +27,8 @@
         .cardItem-product {
             max-height: 500px;
         }
-        .img-product{
+
+        .img-product {
             max-height
         }
     </style>
@@ -44,33 +46,48 @@
                 <ul class="list-unstyled templatemo-accordion">
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Gender
+                            Cinsiyet
                             <i class="fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul class="collapse show list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Men</a></li>
-                            <li><a class="text-decoration-none" href="#">Women</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()?gender=Kadın">Kadın</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()?gender=Erkek">Erkek</a></li>
+
                         </ul>
                     </li>
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Sale
+                            Beden
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseTwo" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Sport</a></li>
-                            <li><a class="text-decoration-none" href="#">Luxury</a></li>
+                            @foreach (var item in ViewBag.Bedenler)
+                            {
+                                <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&size=@item">@item</a></li>
+                            }
                         </ul>
                     </li>
                     <li class="pb-3">
                         <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
-                            Product
+                            Renk
                             <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
                         </a>
                         <ul id="collapseThree" class="collapse list-unstyled pl-3">
-                            <li><a class="text-decoration-none" href="#">Bag</a></li>
-                            <li><a class="text-decoration-none" href="#">Sweather</a></li>
-                            <li><a class="text-decoration-none" href="#">Sunglass</a></li>
+                            @foreach (var item in ViewBag.Renkler)
+                            {
+                                <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&color=@item">@item</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="pb-3">
+                        <a class="collapsed d-flex justify-content-between h3 text-decoration-none" href="#">
+                            Fiyat
+                            <i class="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+                        </a>
+                        <ul id="collapseThree" class="collapse list-unstyled pl-3">
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&price=0-25">0-25</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&price=25-300">25-300</a></li>
+                            <li><a class="text-decoration-none" href="@Context.Request.GetDisplayUrl()&price=300-500">300-500</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -114,7 +131,7 @@
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <ul class="list-unstyled">
                                             <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@item.Id"><i class="far fa-heart"></i></a></li>
-                                            <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productId=@item.Id"><i class="far fa-eye"></i></a></li>
+                                            <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@item.Name"><i class="far fa-eye"></i></a></li>
                                             <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@item.Id"><i class="fas fa-cart-plus"></i></a></li>
                                         </ul>
                                     </div>
@@ -148,21 +165,21 @@
                     }
                 </div>
 
-                </div>
-                <div div="row">
-                    <ul class="pagination pagination-lg justify-content-end">
-                        <li class="page-item disabled">
-                            <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
-                        </li>
-                        <li class="page-item">
-                            <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
+            <div div="row">
+                <ul class="pagination pagination-lg justify-content-end">
+                    <li class="page-item disabled">
+                        <a class="page-link active rounded-0 mr-3 shadow-sm border-top-0 border-left-0" href="#" tabindex="-1">1</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link rounded-0 mr-3 shadow-sm border-top-0 border-left-0 text-dark" href="#">2</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link rounded-0 shadow-sm border-top-0 border-left-0 text-dark" href="#">3</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
     <!-- End Content -->
     <!-- Start Brands -->

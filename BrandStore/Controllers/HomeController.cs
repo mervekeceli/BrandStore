@@ -50,19 +50,74 @@ namespace BrandStore.Controllers
             return View(multipleViewModel);
         }
 
-        public async Task<IActionResult> Shop()
+        public IActionResult Shop(string? gender, string? brand, string? color, string? size, string? category, string? price)
         {
-            List<Product> _products = await _context.Products.OrderByDescending(x => x.CreateDate).Take(10).ToListAsync();
+            //List<Product> _products = _context.Products.Include(f => f.Brand).Include(f => f.Category).GroupBy(p=>p.Name).Select(x=>x.First()).ToList();
+            List<Product> _products = _context.Products.Select(x => x.Name).Distinct() // (1)
+                .SelectMany(key => _context.Products.Where(x => x.Name == key).Take(1)) // (2)
+                .ToList();
+            if (!string.IsNullOrEmpty(gender))
+            {
+                _products = _products.Where(x => x.Gender == gender).ToList();
+            }
+            if (!string.IsNullOrEmpty(color))
+            {
+                _products = _products.Where(x => x.Color == color).ToList();
+            }
+            if (!string.IsNullOrEmpty(size))
+            {
+                _products = _products.Where(x => x.Size == size).ToList();
+            }
+            if (!string.IsNullOrEmpty(brand))//HATA
+            {
+                _products = _products.Where(x => x.Brand.Name == brand).ToList();
+            }
+            if (!string.IsNullOrEmpty(category))//HATA
+            {
+                //var categoryId = _context.Categories.Where(y => y.Name == category).Select(y => y.Id).FirstOrDefault();
+                _products = _products.Where(x => x.Category.Name == category).ToList();
+            }
+            if (!string.IsNullOrEmpty(price))
+            {
+                string[] prices = price.Split("-");
+                int lowPrice = Int32.Parse(prices[0]);
+                int highPrice = Int32.Parse(prices[1]);
+
+                _products = _products.Where(x => x.Price >= lowPrice && x.Price <= highPrice).ToList();
+            }
+            List<string> _bedenler = new List<string>();
+            List<string> _renkler = new List<string>();
+            foreach (var item in _products)
+            {
+                _bedenler.Add(item.Size);
+                _renkler.Add(item.Color);
+            }
+            _bedenler = _bedenler.Distinct().ToList();
+            _renkler = _renkler.Distinct().ToList();
+
+            ViewBag.Bedenler = _bedenler;
+            ViewBag.Renkler = _renkler;
+
             return View(_products);
         }
-		
-		public IActionResult ShopSingle(int productId)
+
+        public IActionResult ShopSingle(string productName)
         {
-            Product product = _context.Products.Where(b => b.Id == productId).FirstOrDefault();
+            Product product = _context.Products.Where(b => b.Name == productName).FirstOrDefault();
+            List<Product> _products = _context.Products.Where(b => b.Name == productName).ToList();
+            List<string> _bedenler = new List<string>();
+            List<string> _newbedenler = new List<string>();
+            foreach (var item in _products)
+            {
+                _bedenler.Add(item.Size);
+            }
+
+            _newbedenler = _bedenler.Distinct().ToList();
+            ViewBag.Bedenler = _newbedenler;
             return View(product);
         }
 
-        public async Task<IActionResult> CategoriesShop(string name, string? color, string? size, string? brand, string? price)
+        public async Task<IActionResult> CategoriesShop(string name, string? color, string? size, string? brand, string? price, string? gender)
         {
             List<Product> urunler = await _context.Products.Where(b => b.Category.Name == name).ToListAsync();
             if (!string.IsNullOrEmpty(color))
@@ -77,6 +132,10 @@ namespace BrandStore.Controllers
             {
                 urunler = urunler.Where(x => x.Brand.Name == brand).ToList();
             }
+            if (!string.IsNullOrEmpty(gender))
+            {
+                urunler = urunler.Where(x => x.Gender == gender).ToList();
+            }
             if (!string.IsNullOrEmpty(price))
             {
                 string[] prices = price.Split("-");
@@ -85,12 +144,23 @@ namespace BrandStore.Controllers
 
                 urunler = urunler.Where(x => x.Price >= lowPrice && x.Price <= highPrice).ToList();
             }
+            List<string> _bedenler = new List<string>();
+            List<string> _renkler = new List<string>();
+            foreach (var item in urunler)
+            {
+                _bedenler.Add(item.Size);
+                _renkler.Add(item.Color);
+            }
+            _bedenler = _bedenler.Distinct().ToList();
+            _renkler = _renkler.Distinct().ToList();
 
+            ViewBag.Bedenler = _bedenler;
+            ViewBag.Renkler = _renkler;
 
             return View(urunler);
 
         }
-        public async Task<IActionResult> BrandIndex(string brand, string? color, string? size, string? category, string? price)
+        public async Task<IActionResult> BrandIndex(string brand, string? color, string? size, string? category, string? price, string? gender)
         {
             List<Product> urunler = await _context.Products.Where(b => b.Brand.Name == brand).ToListAsync();
             if (!string.IsNullOrEmpty(color))
@@ -105,6 +175,10 @@ namespace BrandStore.Controllers
             {
                 urunler = urunler.Where(x => x.Category.Name == category).ToList();
             }
+            if (!string.IsNullOrEmpty(gender))
+            {
+                urunler = urunler.Where(x => x.Gender == gender).ToList();
+            }
             if (!string.IsNullOrEmpty(price))
             {
                 string[] prices = price.Split("-");
@@ -113,10 +187,24 @@ namespace BrandStore.Controllers
 
                 urunler = urunler.Where(x => x.Price >= lowPrice && x.Price <= highPrice).ToList();
             }
+            List<string> _bedenler = new List<string>();
+            List<string> _renkler = new List<string>();
+            foreach (var item in urunler)
+            {
+                _bedenler.Add(item.Size);
+                _renkler.Add(item.Color);
+            }
+            _bedenler = _bedenler.Distinct().ToList();
+            _renkler = _renkler.Distinct().ToList();
+
+            ViewBag.Bedenler = _bedenler;
+            ViewBag.Renkler = _renkler;
             return View(urunler);
         }
 
-        //[HttpPost]
+        [HttpPost]
+
+        [HttpPost]
         public async Task<IActionResult> AddProductToBasket(int productId)
         {
             var basket = await _context.Baskets
@@ -279,7 +367,7 @@ namespace BrandStore.Controllers
 
                 }
                 brand.ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-                brand.Active = true;
+               // brand.Active = true;
                 _context.Add(brand);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
