@@ -40,18 +40,20 @@ namespace BrandStore.Controllers
         {
             var brands = _context.Brands;
             var categories = _context.Categories;
+            var products = _context.Products;
 
             MultipleViewModel multipleViewModel = new MultipleViewModel();
             multipleViewModel.BrandViewModel = brands;
             multipleViewModel.CategoryViewModel = categories;
+            multipleViewModel.ProductViewModel = products;
 
             return View(multipleViewModel);
         }
 
-        public IActionResult Shop()
+        public async Task<IActionResult> Shop()
         {
-            var db = _context.Products.Include(f => f.Brand).Include(f => f.Category);
-            return View(db.ToList());
+            List<Product> _products = await _context.Products.OrderByDescending(x => x.CreateDate).Take(10).ToListAsync();
+            return View(_products);
         }
 		
 		public IActionResult ShopSingle(int productId)
@@ -285,13 +287,6 @@ namespace BrandStore.Controllers
             return View(brand);
         }
 
-
-        
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

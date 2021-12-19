@@ -21,7 +21,15 @@
 
     <!-- Load fonts style after rendering the layout styles -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-    <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/fontawesome.min.css">>
+    <style>
+        .cardItem-product {
+            max-height: 500px;
+        }
+        .img-product{
+            max-height
+        }
+    </style>
 
 </head>
 
@@ -98,9 +106,11 @@
                     @foreach (var item in Model)
                     {
                         <div class="col-md-4">
-                            <div class="card mb-4 product-wap rounded-0">
+                            <div class="card product-wap mb-4 rounded-0">
                                 <div class="card rounded-0">
-                                    <img class="card-img rounded-0 img-fluid" src="~/img/@item.MainPhoto">
+                                    <div class="img-product img-rounded">
+                                        <img class="cardItem-product rounded-0 img-fluid" src="~/img/@item.MainPhoto">
+                                    </div>
                                     <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                         <ul class="list-unstyled">
                                             <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@item.Id"><i class="far fa-heart"></i></a></li>
@@ -110,7 +120,7 @@
                                     </div>
                                 </div>
                                 <div class="card-body">
-                                    <a href="Home/ShopSingle" class="h3 text-decoration-none">Oupidatat non</a>
+                                    <a href="Home/ShopSingle" class="h3 text-decoration-none">@item.Name</a>
 
                                     <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                         <li>Beden: @item.Size</li>
@@ -135,8 +145,8 @@
                                 </div>
                             </div>
                         </div>
-
                     }
+                </div>
 
                 </div>
                 <div div="row">
@@ -153,8 +163,6 @@
                     </ul>
                 </div>
             </div>
-
-        </div>
     </div>
     <!-- End Content -->
     <!-- Start Brands -->
@@ -172,19 +180,19 @@
                     <div class="row d-flex flex-row">
                         <!--Controls-->
                         <div class="col-1 align-self-center">
-                            <a class="h1" href="#multi-product1-example" role="button" data-bs-slide="prev">
+                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="prev">
                                 <i class="text-light fas fa-chevron-left"></i>
                             </a>
                         </div>
                         <!--End Controls-->
                         <!--Carousel Wrapper-->
                         <div class="col">
-                            <div class="carousel slide carousel-multi-product1 pt-2 pt-md-0" id="multi-product1-example" data-bs-ride="carousel">
+                            <div class="carousel slide carousel-multi-item pt-2 pt-md-0" id="multi-item-example" data-bs-ride="carousel">
                                 <!--Slides-->
                                 <div class="carousel-inner product-links-wap" role="listbox">
 
                                     <!--First slide-->
-                                    <div class="carousel-product1 active">
+                                    <div class="carousel-item active">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="~/assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -202,7 +210,7 @@
                                     </div>
                                     <!--End First slide-->
                                     <!--Second slide-->
-                                    <div class="carousel-product1">
+                                    <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="~/assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -220,7 +228,7 @@
                                     </div>
                                     <!--End Second slide-->
                                     <!--Third slide-->
-                                    <div class="carousel-product1">
+                                    <div class="carousel-item">
                                         <div class="row">
                                             <div class="col-3 p-md-5">
                                                 <a href="#"><img class="img-fluid brand-img" src="~/assets/img/brand_01.png" alt="Brand Logo"></a>
@@ -245,7 +253,7 @@
                         <!--End Carousel Wrapper-->
                         <!--Controls-->
                         <div class="col-1 align-self-center">
-                            <a class="h1" href="#multi-product1-example" role="button" data-bs-slide="next">
+                            <a class="h1" href="#multi-item-example" role="button" data-bs-slide="next">
                                 <i class="text-light fas fa-chevron-right"></i>
                             </a>
                         </div>
