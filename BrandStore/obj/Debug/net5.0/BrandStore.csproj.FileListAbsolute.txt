@@ -2433,3 +2433,4 @@ C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\BrandSto
 C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\ref\BrandStore.dll
 C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
+C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\SearchProducts.cshtml.g.cs

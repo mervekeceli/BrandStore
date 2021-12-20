@@ -757,7 +757,7 @@
                                 </ul>
 
 
-                                <form action="" method="GET">
+                                
                                     <input type="hidden" name="product-title" value="Activewear">
                                     <div class="row">
                                         <div class="col-auto">
@@ -786,14 +786,13 @@
                                     </div>
                                     <div class="row pb-3">
                                         <div class="col d-grid">
-                                            <button type="submit" class="btn btn-success btn-lg" name="submit" value="buy">Satin Al</button>
-                                        </div>
-                                        <div class="col d-grid">
-                                            <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Sepete Ekle</button>
+                                            <form asp-controller="Home" asp-action="AddProductToBasket" method="post">
+                                                <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">Sepete Ekle</button>
+                                            </form>
+                                            
                                         </div>
                                     </div>
-                                </form>
-
+                                
                             </div>
                         </div>
                     </div>

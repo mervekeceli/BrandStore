@@ -305,7 +305,11 @@ namespace BrandStore.Controllers
             return RedirectToAction("Index", "Favorites");
         }
 
-
+        public async Task<IActionResult> SearchProducts(string searchItem)
+        {
+            List<Product> products = await _context.Products.Where(x => x.Name.ToLower().Contains(searchItem.ToLower())).ToListAsync();
+            return View(products);
+        }
 
 
         [Authorize]
