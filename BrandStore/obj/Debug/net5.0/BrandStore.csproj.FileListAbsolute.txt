@@ -1241,7 +1241,6 @@ C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\View
 C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\CreateBrand.cshtml.g.cs
 C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\MyOrder.cshtml.g.cs
-C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\Shop.cshtml.g.cs
 C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\ShopSingle.cshtml.g.cs
 C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\MainCategories\Create.cshtml.g.cs
@@ -2434,3 +2433,6 @@ C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\ref\Bran
 C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
 C:\Users\User\Desktop\20.12.2021\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\SearchProducts.cshtml.g.cs
+C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Favorites\Index.cshtml.g.cs
+C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\OrderDetails.cshtml.g.cs
+C:\Users\merve\Desktop\tasarim\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\SearchProducts.cshtml.g.cs

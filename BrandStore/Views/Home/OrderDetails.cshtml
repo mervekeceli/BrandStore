@@ -1,11 +1,15 @@
 ﻿@model IEnumerable<BrandStore.Models.BasketItem>
 
+<html>
+<head>
 
-<section class="static about-sec">
-    <div class="container">
-        <h1>Siparis Detaylari</h1>
-                @foreach (var item in Model)
-                {
+</head>
+<body>
+    <section class="static about-sec">
+        <div class="container">
+            <h1>Order Details</h1>
+            @foreach (var item in Model)
+            {
                 <div class="card">
                     <h5 class="card-header">@item.Product.Name</h5>
                     <div class="card-body">
@@ -14,8 +18,10 @@
                         <img class="img-fluid" href="@item.Product.MainPhoto" />
                     </div>
                 </div>
-                }
-            
-    </div>
-</section>
+            }
+        </div>
+    </section>
+</body>
+</html>
+
 

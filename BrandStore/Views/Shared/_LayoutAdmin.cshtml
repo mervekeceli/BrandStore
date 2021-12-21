@@ -38,38 +38,39 @@
 
 <body>
     <!-- Sidenav -->
-    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
-        <div class="scrollbar-inner">
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white d-flex" id="sidenav-main">
+        <div class="scrollbar-inner col-lg-8 col-md-8 col-sm-6 col-xs-4">
             <!-- Brand -->
-            <div class="sidenav-header  align-items-center">
-                <a class="navbar-brand" href="javascript:void(0)">
-                    <img src="~/assets/img/brand/blue.png" class="navbar-brand-img" alt="...">
-                </a>
-            </div>
+            <a class="navbar-brand text-blue logo h1 align-self-center" href="javascript:void(0)">
+                Brand Store <br />
+            </a>
             <div class="navbar-inner">
                 <!-- Collapse -->
                 <div class="collapse navbar-collapse" id="sidenav-collapse-main">
                     <!-- Nav items -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link active" asp-controller="Products" asp-action="Create">
-                                <i class="ni ni-tv-2 text-primary"></i>
-                                <span class="nav-link-text">Urun Ekle</span>
+                            <a class="nav-link" asp-controller="Products" asp-action="Create">
+                                <span class="nav-link-text"><b>Product Add</b></span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Categories" asp-action="Create">
-                                <i class="ni ni-planet text-orange"></i>
-                                <span class="nav-link-text">Kategori Ekle</span>
+                                <span class="nav-link-text"><b>Category Add</b></span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="MainCategories" asp-action="Create">
-                                <i class="ni ni-pin-3 text-primary"></i>
-                                <span class="nav-link-text">Ana Kategori Ekle</span>
+                                <span class="nav-link-text"><b>Main Category Add</b></span>
                             </a>
                         </li>
-                        <partial name="/Views/Shared/_LoginPartial.cshtml" />
+                        <li class="nav-item icon-text-aligner">
+                            <a class="nav-link"><b>
+                                <partial name="/Views/Shared/_LoginPartial.cshtml" />
+                            </b>
+                            </a>
+                        </li>
+
                     </ul>
                     <!-- Divider -->
                     <hr class="my-3">
@@ -108,6 +109,7 @@
             </div>
         </div>
     </nav>
+
     @RenderBody()
     <script src="~/assets/vendor/jquery/dist/jquery.min.js"></script>
     <script src="~/assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

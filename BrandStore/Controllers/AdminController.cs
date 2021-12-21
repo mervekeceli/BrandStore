@@ -30,22 +30,22 @@ namespace BrandStore.Controllers
 
         public IActionResult Index()
         {
-            int[] totalArray = new int[2];
-            totalArray= TotalAlisveris();
-            ViewBag.TotalFiyat = totalArray[0];
-            ViewBag.TotalAlisveris = totalArray[1];
+            //int[] totalArray = new int[2];
+            //totalArray= TotalAlisveris();
+            //ViewBag.TotalFiyat = totalArray[0];
+            //ViewBag.TotalAlisveris = totalArray[1];
             return View();
         }
-        public int[] TotalAlisveris()
-        {
-            int[] totalArray=new int[2];
-            var ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            List<Brand> _brands = _context.Brands.Include(b => b.ApplicationUser).Where(b => b.Active == false).ToList();
+        //public int[] TotalAlisveris()
+        //{
+        //    int[] totalArray=new int[2];
+        //    var ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    List<Brand> _brands = _context.Brands.Include(b => b.ApplicationUser).Where(b => b.Active == false).ToList();
             
-            List<BasketItem> _basketitems = _context.BasketItems.Where(p => p.Product.Brand.ApplicationUserId == ApplicationUserId).ToList();
-            totalArray[0]= _basketitems.Sum(x => x.Product.Price);
-            totalArray[1] = _basketitems.Count();
-            return totalArray; 
-        }
+        //    List<BasketItem> _basketitems = _context.BasketItems.Where(p => p.Product.Brand.ApplicationUserId == ApplicationUserId).ToList();
+        //    totalArray[0]= _basketitems.Sum(x => x.Product.Price);
+        //    totalArray[1] = _basketitems.Count();
+        //    return totalArray; 
+        //}
     }
 }

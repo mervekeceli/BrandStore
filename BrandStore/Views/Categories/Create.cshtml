@@ -2,58 +2,101 @@
 @{ 
     Layout = "_LayoutAdmin";
 }
-<div class="main-content">
-    <h1>Kategori Ekle</h1>
-    <hr />
 
-    <form asp-action="Create" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-4">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Name" class="control-label"></label>
-                    <input asp-for="Name" class="form-control" />
-                    <span asp-validation-for="Name" class="text-danger"></span>
+<html>
+<head>
+    <style>
+        #cover {
+            background: #d6f9da center center no-repeat;
+            background-size: cover;
+            height: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        #cover-caption {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* only used for background overlay not needed for centering */
+        form:before {
+            content: '';
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0,0,0,0);
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main-content">
+        <div id="cover-caption">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                        <h1 class="display-4 py-2 text-black-50">Category Add</h1>
+                        <div class="px-2 card">
+                            <form asp-action="Create" enctype="multipart/form-data" class="justify-content-center">
+                                <div class="row card-group">
+                                    <div class="col-lg-12 col-md-8 col-sm-6">
+                                        <div class="form-group">
+                                            <label asp-for="Name" class="control-label text-black-50"></label>
+                                            <input asp-for="Name" class="form-control" placeholder="Category Name"/>
+                                            <span asp-validation-for="Name" class="text-black"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 col-md-8 col-sm-6">
+
+                                        <div class="form-group">
+                                            <label asp-for="MainCategoryId" class="control-label text-black-50"></label>
+                                            <select asp-for="MainCategoryId" class="form-control" asp-items="ViewBag.MainCategoryId"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-12 col-md-8 col-sm-6">
+                                        <label asp-for="PhotoFile" class="control-label text-black-50"></label>
+                                        <input asp-for="PhotoFile" class="form-control"/>
+                                        <span asp-validation-for="PhotoFile" class="text-black-50"></span>
+                                    </div>
+                                </div>
+
+                                <div class="row card-group">
+                                    <div class=" col-lg-12 col-md-8 col-sm-6">
+                                        <div class="form-group">
+                                            <input type="submit" value="Ekle" class="btn btn-block btn-success" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <form asp-action="Index" class="justify-content-center">
+                                <div class="row card-group">
+                                    <div class=" col-md-12">
+                                        <div class="form-group">
+                                            <input type="submit" value="Listeye Don" class="btn btn-block btn-success" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-4">
 
-                <div class="form-group">
-                    <label asp-for="MainCategoryId" class="control-label"></label>
-                    <select asp-for="MainCategoryId" class="form-control" asp-items="ViewBag.MainCategoryId"></select>
-                </div>
-                <div class="form-group">
-                    <label asp-for="PhotoFile" class="control-label"></label>
-                    <input asp-for="PhotoFile" class="form-control" />
-                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
-                </div>
-            </div>
         </div>
-
-        <div class="row">
-            <div class=" col-md-8">
-                <div class="form-group">
-                    <input type="submit" value="Ekle" class="btn btn-block btn-primary" />
-                </div>
-            </div>
-
-        </div>
-
-    </form>
-    <form asp-action="Index">
-        <div class="row">
-            <div class=" col-md-8">
-                <div class="form-group">
-                    <input type="submit" value="Listeye Don" class="btn btn-block btn-primary" />
-                </div>
-            </div>
-
-        </div>
-    </form>
-
-
-
-</div>
+    </div>
+    
+</body>
+</html>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
