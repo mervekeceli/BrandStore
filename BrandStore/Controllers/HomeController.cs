@@ -53,7 +53,7 @@ namespace BrandStore.Controllers
         public IActionResult Shop(string? gender, string? brand, string? color, string? size, string? category, string? price)
         {
             //List<Product> _products = _context.Products.Include(f => f.Brand).Include(f => f.Category).GroupBy(p=>p.Name).Select(x=>x.First()).ToList();
-            List<Product> _products = _context.Products.Include(f => f.Brand).Include(f => f.Category).Select(x => x.Name).Distinct() // (1)
+            List<Product> _products = _context.Products.Where(f => f.Active == true).Include(f => f.Brand).Include(f => f.Category).Select(x => x.Name).Distinct() // (1)
                 .SelectMany(key => _context.Products.Include(f => f.Brand).Include(f => f.Category).Where(x => x.Name == key).Take(1)) // (2)
                 .ToList();
             if (!string.IsNullOrEmpty(gender))
@@ -101,8 +101,9 @@ namespace BrandStore.Controllers
             return View(_products);
         }
 
-        public IActionResult ShopSingle(string productName)
+        public async Task<IActionResult> ShopSingle(string productName, Category category)
         {
+            List<Product> products = await _context.Products.Where(b => b.CategoryId == category.Id).Take(3).ToListAsync();
             Product product = _context.Products.Where(b => b.Name == productName).FirstOrDefault();
             List<Product> _products = _context.Products.Where(b => b.Name == productName).ToList();
             List<string> _bedenler = new List<string>();
@@ -114,7 +115,11 @@ namespace BrandStore.Controllers
 
             _newbedenler = _bedenler.Distinct().ToList();
             ViewBag.Bedenler = _newbedenler;
-            return View(product);
+
+            products.Add(product);
+
+            return View(products);
+
         }
 
         //public async Task<IActionResult> CategoriesShop(string name, string? color, string? size, string? brand, string? price, string? gender)

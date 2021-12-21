@@ -1,7 +1,10 @@
 ﻿@model IEnumerable<BrandStore.Models.Basket>
-
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <html>
-<head></head>
+<head>
+</head>
 <body>
     <section class="static about-sec">
         <h1>My Orders</h1>
@@ -45,15 +48,15 @@
                                 @if (item.Status == "KARGO")
                                 {
                                     <td style="display: flex;">
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detay" class="btn btn-block btn-primary" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detay" class="btn btn-success" /></a>
 
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="CancelOrder" asp-route-orderId="@item.Id"><input type="submit" value="Iptal Et" class="btn btn-block btn-primary" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="CancelOrder" asp-route-orderId="@item.Id"><input type="submit" value="Iptal Et" class="btn btn-success" /></a>
                                     </td>
                                 }
                                 else
                                 {
                                     <td style="display: flex;">
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detay" class="btn btn-block btn-primary" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detay" class="btn btn-success" /></a>
                                     </td>
                                 }
                             </tr>
@@ -61,7 +64,7 @@
                     </tbody>
                 </table>
             </div>
-                }
+        }
         else
         {
             <p style="margin-left:50px;">Hic Siparis Yok :/</p>
