@@ -7,49 +7,47 @@
     <link href="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-
+    <style>
+        .card {
+            margin: 50px;
+            margin-block-start: 50px;
+            border: 0px green;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container" style="align-content:center;">
-        <div class="h-screen bg-gray-300">
-            <div class="py-12">
-                <div class="max-w-md mx-auto bg-gray-100 shadow-lg rounded-lg md:max-w-5xl">
-                    <div class="md:flex ">
-                        <div class="w-full p-4 px-5 py-5">
-                            <div class="md:grid md:grid-cols-3 gap-2 ">
-                                <div class="col-span-2 p-5">
-                                    <h1 class="text-xl font-medium ">Favorites</h1>
-                                    @if (Model != null)
-                                    {
-                                        @if (Model.Any())
-                                        {
-                                            @foreach (var _favorite in Model)
-                                            {
-                                                <div class="flex justify-between items-center mt-6 pt-6">
-                                                    <div class="flex items-center">
-                                                        <img src="~/img/@_favorite.Product.MainPhoto" width="60" class="rounded-full ">
-                                                        <div class="flex flex-col ml-3"> <span class="md:text-md font-medium">@_favorite.Product.Name</span> <span class="text-xs font-light text-gray-400"></span> </div>
-                                                    </div>
-                                                    <div class="flex justify-center items-center">
-                                                        <div class="pr-8 flex "> <span class="font-semibold">-</span> <input type="text" class="focus:outline-none bg-gray-100 border h-6 w-8 rounded text-sm px-2 mx-2" value="1"> <span class="font-semibold">+</span> </div>
-                                                        <div class="pr-8 "> <span class="text-xs font-medium">@_favorite.Product.Price</span> </div>
-                                                        <div><a asp-action="RemoveFromFavorites" asp-route-productId="@_favorite.Product.Id"><i class="fa fa-close text-xs font-medium"></i></a></div>
-                                                    </div>
-                                                </div>
-                                            }
-                                        }
-                                    }
-                                    else
-                                    {
-                                        <p style="margin-left:50px;">Favorilerin yok...</p>
-                                    }
+    <div class="card p-4 px-5 py-5 justify-content-center">
+        <div class="md:grid md:grid-cols-3 gap-2 ">
+            <div class="col-span-2 p-5">
+                <h1 class="text-xl font-medium ">Favorites</h1>
+                @if (Model != null)
+                {
+                    @if (Model.Any())
+                    {
+                        @foreach (var _basket in Model)
+                        {
+                            <div class="">
+                                <div class="flex justify-between items-center mt-6 pt-6">
+                                    <div class="flex items-center">
+                                        <img src="~/img/@_basket.Product.MainPhoto" width="60" class="rounded-full ">
+                                        <div class="flex flex-col"> <span class="md:text-md font-medium"> @_basket.Product.Name</span> <span class="text-xs font-light text-gray-400"></span> </div>
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <div class="pr-8 md:text-md font-medium"> <span class="text-xs font-medium">Price: $@_basket.Product.Price</span> </div>
+                                        <div><a asp-action="RemoveFromFavorites" asp-route-productId="@_basket.Product.Id"><i class="fa fa-close text-xs font-medium"></i></a></div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        }
+                    }
+                }
+                else
+                {
+                    <p style="margin-left:50px;">Sepetin bos gorunuyor...</p>
+                }
                 </div>
-            </div>
         </div>
     </div>
+
 </body>

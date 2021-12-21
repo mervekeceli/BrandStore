@@ -4,14 +4,21 @@
 }
 <html>
 <head>
+    <style>
+        .card {
+            margin: 50px;
+            margin-block-start: 50px;
+            border: 0px green;
+        }
+    </style>
 </head>
 <body>
     <section class="static about-sec">
-        <h1>My Orders</h1>
+        <div class="card">
+            <h1>My Orders</h1>
 
-        @if (Model.Any())
-        {
-            <div class="card">
+            @if (Model.Any())
+            {
                 <table id="myOrderTable" class="table table-striped table-bordered" style="width:100%;">
                     <thead>
                         <tr>
@@ -32,11 +39,11 @@
                                     @Html.DisplayFor(modelItem => item.Id)
                                 </td>
                                 <td>
-                                    @if (item.Status == "KARGO")
+                                    @if (item.Status == "CARGO")
                                     {
                                         <span>KARGO</span>
                                     }
-                                    else if (item.Status == "IPTAL")
+                                    else if (item.Status == "CANCELED")
                                     {
                                         <span>IPTAL</span>
                                     }
@@ -45,30 +52,32 @@
                                         <span>TAMAMLANDI</span>
                                     }
                                 </td>
-                                @if (item.Status == "KARGO")
+                                @if (item.Status == "CARGO")
                                 {
                                     <td style="display: flex;">
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detay" class="btn btn-success" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detail" class="btn btn-success" /></a>
 
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="CancelOrder" asp-route-orderId="@item.Id"><input type="submit" value="Iptal Et" class="btn btn-success" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="CancelOrder" asp-route-orderId="@item.Id"><input type="submit" value="Canceled" class="btn btn-success" /></a>
                                     </td>
                                 }
                                 else
                                 {
                                     <td style="display: flex;">
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detay" class="btn btn-success" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detail" class="btn btn-success" /></a>
                                     </td>
                                 }
                             </tr>
                         }
                     </tbody>
                 </table>
-            </div>
-        }
-        else
-        {
-            <p style="margin-left:50px;">Hic Siparis Yok :/</p>
-        }
+
+            }
+            else
+            {
+                <p style="margin-left:50px;">Hic Siparis Yok :/</p>
+            }
+        </div>
+        
     </section>
 </body>
 </html>
