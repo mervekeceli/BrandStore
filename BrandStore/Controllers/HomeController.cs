@@ -5,9 +5,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Localization;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,14 +28,15 @@ namespace BrandStore.Controllers
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _hostEnviroment;
-
-        public HomeController(ILogger<HomeController> logger,ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager, IWebHostEnvironment hostEnviroment)
+        private readonly IStringLocalizer<HomeController> _localizer;
+        public HomeController(ILogger<HomeController> logger, IStringLocalizer<HomeController> localizer,ApplicationDbContext context, IHttpContextAccessor httpContextAccessor, UserManager<ApplicationUser> userManager, IWebHostEnvironment hostEnviroment)
         {
             _logger = logger;
             _context = context;
             _httpContextAccessor = httpContextAccessor;
             _userManager = userManager;
             _hostEnviroment = hostEnviroment;
+            _localizer = localizer;
         }
 
         public IActionResult Index()
@@ -101,9 +104,9 @@ namespace BrandStore.Controllers
             return View(_products);
         }
 
-        public async Task<IActionResult> ShopSingle(string productName, Category category)
+        public async Task<IActionResult> ShopSingle(string productName, int category)
         {
-            List<Product> products = await _context.Products.Where(b => b.CategoryId == category.Id).Take(3).ToListAsync();
+            List<Product> products = await _context.Products.Where(b => b.CategoryId == category).Take(3).ToListAsync();
             Product product = _context.Products.Where(b => b.Name == productName).FirstOrDefault();
             List<Product> _products = _context.Products.Where(b => b.Name == productName).ToList();
             List<string> _bedenler = new List<string>();
@@ -121,95 +124,6 @@ namespace BrandStore.Controllers
             return View(products);
 
         }
-
-        //public async Task<IActionResult> CategoriesShop(string name, string? color, string? size, string? brand, string? price, string? gender)
-        //{
-        //    List<Product> urunler = await _context.Products.Where(b => b.Category.Name == name).ToListAsync();
-        //    if (!string.IsNullOrEmpty(color))
-        //    {
-        //        urunler = urunler.Where(x => x.Color == color).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(size))
-        //    {
-        //        urunler = urunler.Where(x => x.Size == size).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(brand))
-        //    {
-        //        urunler = urunler.Where(x => x.Brand.Name == brand).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(gender))
-        //    {
-        //        urunler = urunler.Where(x => x.Gender == gender).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(price))
-        //    {
-        //        string[] prices = price.Split("-");
-        //        int lowPrice = Int32.Parse(prices[0]);
-        //        int highPrice = Int32.Parse(prices[1]);
-
-        //        urunler = urunler.Where(x => x.Price >= lowPrice && x.Price <= highPrice).ToList();
-        //    }
-        //    List<string> _bedenler = new List<string>();
-        //    List<string> _renkler = new List<string>();
-        //    foreach (var item in urunler)
-        //    {
-        //        _bedenler.Add(item.Size);
-        //        _renkler.Add(item.Color);
-        //    }
-        //    _bedenler = _bedenler.Distinct().ToList();
-        //    _renkler = _renkler.Distinct().ToList();
-
-        //    ViewBag.Bedenler = _bedenler;
-        //    ViewBag.Renkler = _renkler;
-
-        //    return View(urunler);
-
-        //}
-        //public async Task<IActionResult> BrandIndex(string brand, string? color, string? size, string? category, string? price, string? gender)
-        //{
-        //    List<Product> urunler = await _context.Products.Where(b => b.Brand.Name == brand).ToListAsync();
-        //    if (!string.IsNullOrEmpty(color))
-        //    {
-        //        urunler = urunler.Where(x => x.Color == color).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(size))
-        //    {
-        //        urunler = urunler.Where(x => x.Size == size).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(category))
-        //    {
-        //        urunler = urunler.Where(x => x.Category.Name == category).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(gender))
-        //    {
-        //        urunler = urunler.Where(x => x.Gender == gender).ToList();
-        //    }
-        //    if (!string.IsNullOrEmpty(price))
-        //    {
-        //        string[] prices = price.Split("-");
-        //        int lowPrice = Int32.Parse(prices[0]);
-        //        int highPrice = Int32.Parse(prices[1]);
-
-        //        urunler = urunler.Where(x => x.Price >= lowPrice && x.Price <= highPrice).ToList();
-        //    }
-        //    List<string> _bedenler = new List<string>();
-        //    List<string> _renkler = new List<string>();
-        //    foreach (var item in urunler)
-        //    {
-        //        _bedenler.Add(item.Size);
-        //        _renkler.Add(item.Color);
-        //    }
-        //    _bedenler = _bedenler.Distinct().ToList();
-        //    _renkler = _renkler.Distinct().ToList();
-
-        //    ViewBag.Bedenler = _bedenler;
-        //    ViewBag.Renkler = _renkler;
-        //    return View(urunler);
-        //}
-
-       
-
-       
         public async Task<IActionResult> AddProductToBasket(int productId)
         {
             var basket = await _context.Baskets
@@ -384,6 +298,35 @@ namespace BrandStore.Controllers
             return View(brand);
         }
 
+        [Route("Home/ErrorPage/{statusCode}")]
+        public IActionResult ErrorPage(int statusCode)
+        {
+            switch (statusCode)
+            {
+                case 901:
+                    ViewBag.ErrorMessage = _localizer["ErrorMessage1"];
+                    break;
+                default:
+                    ViewBag.ErrorMessage = _localizer["ErrorMessage2"];
+                    break;
+            }
+            return View();
+        }
+        public IActionResult ErrorPage(string ReturnUrl)
+        {
+            ViewBag.ErrorMessage = _localizer["ErrorMessage2"] + ": " + ReturnUrl;
+            return View();
+        }
+        [HttpPost]
+        public IActionResult LangSetting(string culture)
+        {
+            Response.Cookies.Append(
+                CookieRequestCultureProvider.DefaultCookieName,
+                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
+                new CookieOptions { Expires = DateTimeOffset.Now.AddDays(10) }
+                );
+            return RedirectToAction(nameof(Index));
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

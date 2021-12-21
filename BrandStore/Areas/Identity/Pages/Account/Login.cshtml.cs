@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using BrandStore.Data;
+using Microsoft.Extensions.Localization;
 
 namespace BrandStore.Areas.Identity.Pages.Account
 {
@@ -23,14 +24,16 @@ namespace BrandStore.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly IStringLocalizer<LoginModel> _localizer;
         public LoginModel(SignInManager<ApplicationUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+            UserManager<ApplicationUser> userManager, IStringLocalizer<LoginModel> localizer, ApplicationDbContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _context = context;
+            _localizer = localizer;
         }
 
         [BindProperty]
@@ -45,15 +48,17 @@ namespace BrandStore.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
+            [Display(Name = "Email")]
+            [EmailAddress(ErrorMessage = "Lütfen geçerli bir e-posta adresi girin")]
             public string Email { get; set; }
 
-            [Required]
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
             [DataType(DataType.Password)]
+            [Display(Name = "Şifre")]
             public string Password { get; set; }
 
-            [Display(Name = "Remember me?")]
+            [Display(Name = "Beni Hatırla?")]
             public bool RememberMe { get; set; }
         }
 
@@ -116,7 +121,7 @@ namespace BrandStore.Areas.Identity.Pages.Account
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, _localizer["Incorrect"]);
                     return Page();
                 }
             }

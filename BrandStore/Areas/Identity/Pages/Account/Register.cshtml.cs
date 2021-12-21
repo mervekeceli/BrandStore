@@ -46,30 +46,31 @@ namespace BrandStore.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required]
-            [Display(Name="Name")]
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
+            [Display(Name= "Ad")]
             public string Name { get; set; }
-            
 
-            [Required]
-            [Display(Name="Lastname")]
+
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
+            [Display(Name= "Soyad")]
             public string Lastname { get; set; }
 
 
-            [Required]
-            [EmailAddress]
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
+            [EmailAddress(ErrorMessage = "Lütfen geçerli bir e-posta adresi girin")]
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
+            [StringLength(100, ErrorMessage = "Şifre {0} ile {1} karakter arasında olmalıdır.", MinimumLength = 6)]
             [DataType(DataType.Password)]
-            [Display(Name = "Password")]
+            [Display(Name = "Şifre")]
             public string Password { get; set; }
 
+            [Required(ErrorMessage = "{0} boş bırakılamaz.")]
             [DataType(DataType.Password)]
-            [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Display(Name = "Tekrar Şifre")]
+            [Compare("Password", ErrorMessage = "Şifreler birbiriyle eşleşmiyor.")]
             public string ConfirmPassword { get; set; }
         }
 

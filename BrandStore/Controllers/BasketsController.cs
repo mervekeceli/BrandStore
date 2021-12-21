@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,14 @@ namespace BrandStore.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
-        
+        private readonly IStringLocalizer<BasketsController> _localizer;
 
-        public BasketsController(ApplicationDbContext context, UserManager<ApplicationUser> userManager)
+
+        public BasketsController(ApplicationDbContext context, IStringLocalizer<BasketsController> localizer, UserManager<ApplicationUser> userManager)
         {
             _context = context;
             _userManager = userManager;
-           
+            _localizer = localizer;
         }
        
         /*
@@ -135,7 +137,7 @@ namespace BrandStore.Controllers
                             _context.Update(tmpProduct);
                         }
 
-                        TempData["SiparisMesaj"] =
+                        TempData["SiparisMesaj"] = _localizer["SiparisMesaj1"]+ 
                             _product.Name;
                         return RedirectToAction("Index", "Baskets");
                     }
@@ -150,7 +152,7 @@ namespace BrandStore.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            TempData["SiparisMesaj"] =basketId;
+            TempData["SiparisMesaj"] = _localizer.GetString("SiparisMesaj2") + basketId;
             return RedirectToAction("Index", "Baskets");
         }
     }

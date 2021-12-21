@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,13 +23,14 @@ namespace BrandStore.Controllers
         private readonly ApplicationDbContext _context;
         private readonly IWebHostEnvironment _hostEnviroment;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IStringLocalizer<ProductsController> _localizer;
 
-        public ProductsController(ApplicationDbContext context, IWebHostEnvironment hostEnvironment, IHttpContextAccessor httpContextAccessor)
+        public ProductsController(ApplicationDbContext context, IStringLocalizer<ProductsController>localizer, IWebHostEnvironment hostEnvironment, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _hostEnviroment = hostEnvironment;
             _httpContextAccessor = httpContextAccessor;
-
+            _localizer = localizer;
 
         }
 
@@ -81,6 +83,7 @@ namespace BrandStore.Controllers
                 if (product.MainPhotoFile == null || product.SecondPhotoFile == null || product.ThirdPhotoFile == null)
                 {
                     ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name", product.CategoryId);
+                    ViewData["ErrorMessage"] = _localizer["ErrorMessage1"];
                     return View();
                 }
 
@@ -214,6 +217,7 @@ namespace BrandStore.Controllers
                 }
                 else
                 {
+                    ViewData["ErrorMessage"] = _localizer["ErrorMessage2"];
                     ViewData["BrandId"] = new SelectList(_context.Brands.Where(a => a.Active == true), "Id", "Name", product.BrandId);
                     ViewData["CategoryId"] = new SelectList(_context.Categories.Where(a => a.Active == true), "Id", "Name", product.CategoryId);
                     return View();
