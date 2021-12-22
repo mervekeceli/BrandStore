@@ -120,17 +120,38 @@
   <data name="BasketLooksEmpty" xml:space="preserve">
     <value>Sepetin boş görünüyor. Hemen yeni kitaplara göz at.</value>
   </data>
+  <data name="Card" xml:space="preserve">
+    <value>Kart</value>
+  </data>
+  <data name="CardDetails" xml:space="preserve">
+    <value>Kart Detayları</value>
+  </data>
+  <data name="CardName" xml:space="preserve">
+    <value>Kart Adı</value>
+  </data>
+  <data name="CardType" xml:space="preserve">
+    <value>Kart Tipi</value>
+  </data>
   <data name="CompleteTheOrder" xml:space="preserve">
     <value>Siparişi Tamamla</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>₺</value>
   </data>
+  <data name="Currency1" xml:space="preserve">
+    <value>₺</value>
+  </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>Son Kullanma Tarihi</value>
+  </data>
   <data name="GoBackToHome" xml:space="preserve">
     <value>Anasayfaya Dön</value>
   </data>
   <data name="MyBasket" xml:space="preserve">
     <value>Sepetim</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Sipariş Et</value>
   </data>
   <data name="OutOfMyBasket" xml:space="preserve">
     <value>Sepetimden Çıkar</value>

@@ -117,7 +117,31 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="HelloWorld" xml:space="preserve">
-    <value>Merhaba Dunya</value>
+  <data name="Buy" xml:space="preserve">
+    <value>Buy Now</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>$</value>
+  </data>
+  <data name="Go Shop" xml:space="preserve">
+    <value>Go Shop</value>
+  </data>
+  <data name="NoBookMessage" xml:space="preserve">
+    <value>There is no new book added.</value>
+  </data>
+  <data name="PopularCategories" xml:space="preserve">
+    <value>Popular Categories</value>
+  </data>
+  <data name="Reviews" xml:space="preserve">
+    <value>Değerlendirmeler</value>
+  </data>
+  <data name="Slogan" xml:space="preserve">
+    <value>New Books</value>
+  </data>
+  <data name="SomeProducts" xml:space="preserve">
+    <value>Some of Our Products</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>HomePage</value>
   </data>
 </root>

@@ -321,6 +321,14 @@
         "runtime": {
           "BrandStore.dll": {}
         },
+        "resources": {
+          "en-US/BrandStore.resources.dll": {
+            "locale": "en-US"
+          },
+          "tr-TR/BrandStore.resources.dll": {
+            "locale": "tr-TR"
+          }
+        },
         "compile": {
           "BrandStore.dll": {}
         }

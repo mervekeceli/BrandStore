@@ -121,7 +121,7 @@
     <value>Add To Basket</value>
   </data>
   <data name="AuthWarning" xml:space="preserve">
-    <value>You have to login first for adding book to basket.</value>
+    <value>You have to login first for adding product to basket.</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>$</value>
@@ -129,8 +129,11 @@
   <data name="DiscPrice" xml:space="preserve">
     <value>Discounted Price</value>
   </data>
-  <data name="OtherBooks" xml:space="preserve">
-    <value>You may also like these books.</value>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Normal Price</value>
@@ -138,13 +141,19 @@
   <data name="Profit" xml:space="preserve">
     <value>Profit</value>
   </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rating 4.8 | 36 Comments</value>
+  </data>
+  <data name="RelatedProducts" xml:space="preserve">
+    <value>Related Products</value>
+  </data>
   <data name="Stock" xml:space="preserve">
     <value>Stock</value>
   </data>
   <data name="StockStatus" xml:space="preserve">
-    <value>This book is out of stock.</value>
+    <value>This product is out of stock.</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Book Details</value>
+    <value>Brand Store - Product Detail Page</value>
   </data>
 </root>

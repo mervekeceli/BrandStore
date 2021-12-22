@@ -117,22 +117,52 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AuthorList" xml:space="preserve">
-    <value>Yazar Listesi</value>
+  <data name="Activity" xml:space="preserve">
+    <value>Aktivite</value>
   </data>
-  <data name="BookList" xml:space="preserve">
-    <value>Kitap Listesi</value>
+  <data name="Calendar" xml:space="preserve">
+    <value>Takvim</value>
   </data>
-  <data name="CategoryList" xml:space="preserve">
-    <value>Kategori Listesi</value>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
   </data>
-  <data name="LanguageList" xml:space="preserve">
-    <value>Dil Listesi</value>
+  <data name="Logout" xml:space="preserve">
+    <value>Çıkış Yap</value>
   </data>
-  <data name="PendingOrders" xml:space="preserve">
-    <value>Bekleyen Siparişler</value>
+  <data name="Maps" xml:space="preserve">
+    <value>Haritalar</value>
   </data>
-  <data name="Title" xml:space="preserve">
-    <value>Admin Paneli</value>
+  <data name="My profile" xml:space="preserve">
+    <value>Profilim</value>
+  </data>
+  <data name="Payments" xml:space="preserve">
+    <value>Ödemeler</value>
+  </data>
+  <data name="Reports" xml:space="preserve">
+    <value>Raporlar</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Ara</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
+  </data>
+  <data name="Shop" xml:space="preserve">
+    <value>Alışveriş</value>
+  </data>
+  <data name="Since last month" xml:space="preserve">
+    <value>Geçen aya göre</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Yardım</value>
+  </data>
+  <data name="Total Profit" xml:space="preserve">
+    <value>Toplam Kazanç</value>
+  </data>
+  <data name="Total Purchase" xml:space="preserve">
+    <value>Toplam Alışveriş</value>
+  </data>
+  <data name="Welcome!" xml:space="preserve">
+    <value>Hoşgeldin!</value>
   </data>
 </root>

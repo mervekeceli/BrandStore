@@ -129,8 +129,11 @@
   <data name="DiscPrice" xml:space="preserve">
     <value>İndirimli Fiyat</value>
   </data>
-  <data name="OtherBooks" xml:space="preserve">
-    <value>Bu kitapları da beğenebilirsiniz.</value>
+  <data name="Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Önceki</value>
   </data>
   <data name="Price" xml:space="preserve">
     <value>Normal Fiyat</value>
@@ -138,13 +141,19 @@
   <data name="Profit" xml:space="preserve">
     <value>Kazanç</value>
   </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Değerlendirme 4.8 | 36 Yorum</value>
+  </data>
+  <data name="RelatedProducts" xml:space="preserve">
+    <value>İlgili Ürünler</value>
+  </data>
   <data name="Stock" xml:space="preserve">
     <value>Stok Durumu</value>
   </data>
   <data name="StockStatus" xml:space="preserve">
-    <value>Bu kitap stokta bulunmuyor.</value>
+    <value>Bu üründe stokta bulunmuyor.</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Kitap Detayları</value>
+    <value>Ürün Detayları</value>
   </data>
 </root>

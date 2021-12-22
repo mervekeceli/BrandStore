@@ -120,17 +120,35 @@
   <data name="BasketLooksEmpty" xml:space="preserve">
     <value>Your basket looks empty. Check out for new books now.</value>
   </data>
+  <data name="Card" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="CardDetails" xml:space="preserve">
+    <value>Card Details</value>
+  </data>
+  <data name="CardName" xml:space="preserve">
+    <value>Card Name</value>
+  </data>
+  <data name="CardType" xml:space="preserve">
+    <value>Card Type</value>
+  </data>
   <data name="CompleteTheOrder" xml:space="preserve">
     <value>Complete The Order</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>₺</value>
   </data>
+  <data name="ExpirationDate" xml:space="preserve">
+    <value>ExpirationDate</value>
+  </data>
   <data name="GoBackToHome" xml:space="preserve">
     <value>Return To Home Page</value>
   </data>
   <data name="MyBasket" xml:space="preserve">
     <value>My Basket</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
   </data>
   <data name="OutOfMyBasket" xml:space="preserve">
     <value>Remove</value>
