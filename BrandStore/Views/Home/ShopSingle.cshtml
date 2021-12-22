@@ -582,11 +582,12 @@
                 <div class="row">
                     <div class="col-lg-5 mt-5">
                         <div class="app-figure" id="zoom-fig">
-                            <a id="Zoom-1" class="MagicZoom"
+                            <a data-zoom-id="Zoom-1"
                                href="~/img/@product1.MainPhoto"
+                               data-image="~/img/@product1.MainPhoto"
                                data-zoom-image-2x="~/img/@product1.MainPhoto"
                                data-image-2x="~/img/@product1.MainPhoto">
-                                <img class="carousel-product img-fluid" src="~/img/@product1.MainPhoto" alt="Card image cap" />
+                                <img class="carousel-product1 img-fluid" srcset="~/img/@product1.MainPhoto 2x" src="~/img/@product1.MainPhoto" alt="Product Image 2" />
                             </a>
                         </div>
 
@@ -735,7 +736,7 @@
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star text-secondary"></i>
-                                    <span class="list-inline-item text-dark">@localizer["Next"]Rating 4.8 | 36 Comments</span>
+                                    <span class="list-inline-item text-dark">@localizer["Next"]</span>
                                 </p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
@@ -803,7 +804,7 @@
                                         <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                                             <ul class="list-unstyled">
                                                 <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@item.Id"><i class="far fa-heart"></i></a></li>
-                                                <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@item.Name"><i class="far fa-eye"></i></a></li>
+                                                <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@item.Name&&@item.CategoryId"><i class="far fa-eye"></i></a></li>
                                                 <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@item.Id"><i class="fas fa-cart-plus"></i></a></li>
                                             </ul>
                                         </div>
