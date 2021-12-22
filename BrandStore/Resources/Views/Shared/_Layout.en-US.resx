@@ -138,9 +138,6 @@
   <data name="Email" xml:space="preserve">
     <value>Email : bf@sakarya.edu.tr</value>
   </data>
-  <data name="email1" xml:space="preserve">
-    <value>Email</value>
-  </data>
   <data name="Emailaddress" xml:space="preserve">
     <value>Email address</value>
   </data>
@@ -218,14 +215,5 @@
   </data>
   <data name="WomenShoes" xml:space="preserve">
     <value>Women's Shoes</value>
-  </data>
-  <data name="WorkingHours" xml:space="preserve">
-    <value>Working Hours</value>
-  </data>
-  <data name="WorkingHours2" xml:space="preserve">
-    <value>Monday - Friday: 09:00 - 18:00</value>
-  </data>
-  <data name="WorkingHours3" xml:space="preserve">
-    <value>Saturday: 09:00 - 13:00</value>
   </data>
 </root>

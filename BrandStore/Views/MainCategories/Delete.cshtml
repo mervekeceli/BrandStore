@@ -1,15 +1,16 @@
-﻿@model BrandStore.Models.MainCategory
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BrandStore.Models.MainCategory
 @{
     Layout = "_LayoutAdmin";
 }
 <div class="main-content">
     @if (Model.Active == true)
     {
-        <h3>Pasif Yap</h3>
+        <h3>@localizer["ConvertToDeactive"]</h3>
     }
     else
     {
-        <h3>Aktif Et</h3>
+<h3>@localizer["ConvertToActive"]</h3>
     }
 
     <hr />
@@ -34,18 +35,18 @@
                     <input type="hidden" asp-for="Id" />
                     @if (Model.Active == true)
                     {
-                        <input type="submit" value="Pasif Yap" class="btn btn-block btn-danger" />
+                        <input type="submit" value="@localizer["DeactivateButton"]" class="btn btn-block btn-danger" />
                     }
                     else
                     {
-                        <input type="submit" value="Aktif Et" class="btn btn-block btn-danger" />
+                        <input type="submit" value="@localizer["ActivateButton"]" class="btn btn-block btn-danger" />
                     }
                 </form>
             </div>
             <div class="col-md-3">
                 <form asp-action="Index">
                     <div class="form-group">
-                        <input type="submit" value="Listeye Don" class="btn btn-block btn-primary" />
+                        <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-primary" />
                     </div>
                 </form>
             </div>

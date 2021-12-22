@@ -120,9 +120,6 @@
   <data name="AddBrand" xml:space="preserve">
     <value>Add a Brand</value>
   </data>
-  <data name="AdminPagefor BrandStore" xml:space="preserve">
-    <value>AdminPage for BrandStore</value>
-  </data>
   <data name="ConfirmNewRequests" xml:space="preserve">
     <value>Confirm New Requests</value>
   </data>
@@ -132,10 +129,13 @@
   <data name="Foundation" xml:space="preserve">
     <value>Foundation</value>
   </data>
-  <data name="Getting started" xml:space="preserve">
+  <data name="Gettingstarted" xml:space="preserve">
     <value>Getting started</value>
   </data>
   <data name="Plugins" xml:space="preserve">
     <value>Plugins</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>AdminPage for BrandStore</value>
   </data>
 </root>

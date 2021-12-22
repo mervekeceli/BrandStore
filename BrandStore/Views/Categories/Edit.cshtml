@@ -1,9 +1,10 @@
-﻿@model BrandStore.Models.Category
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BrandStore.Models.Category
 @{
     Layout = "_LayoutAdmin";
 }
 <div class="main-content">
-    <h1>Kategori Duzenle</h1>
+    <h1>@localizer["Title"]</h1>
     <hr />
 
     <form asp-action="Edit" enctype="multipart/form-data">
@@ -34,7 +35,7 @@
         <div class="row">
             <div class=" col-md-8">
                 <div class="form-group">
-                    <input type="submit" value="Kaydet" class="btn btn-block btn-primary" />
+                    <input type="submit" value="@localizer["Save"]" class="btn btn-block btn-primary" />
                 </div>
             </div>
         </div>
@@ -45,7 +46,7 @@
         <div class="row">
             <div class="col-md-8">
                 <div class="form-group">
-                    <input type="submit" value="Listeye Don" class="btn btn-block btn-primary" />
+                    <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-primary" />
                 </div>
             </div>
         </div>

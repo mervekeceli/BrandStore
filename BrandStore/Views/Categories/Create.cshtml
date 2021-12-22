@@ -1,5 +1,6 @@
-﻿@model BrandStore.Models.Category
-@{ 
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BrandStore.Models.Category
+@{
     Layout = "_LayoutAdmin";
 }
 
@@ -34,7 +35,6 @@
             z-index: -1;
             border-radius: 10px;
         }
-
     </style>
 </head>
 <body>
@@ -43,14 +43,14 @@
             <div class="container">
                 <div class="row text-white">
                     <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                        <h1 class="display-4 py-2 text-black-50">Category Add</h1>
+                        <h1 class="display-4 py-2 text-black-50">@localizer["Add"]</h1>
                         <div class="px-2 card">
                             <form asp-action="Create" enctype="multipart/form-data" class="justify-content-center">
                                 <div class="row card-group">
                                     <div class="col-lg-12 col-md-8 col-sm-6">
                                         <div class="form-group">
                                             <label asp-for="Name" class="control-label text-black-50"></label>
-                                            <input asp-for="Name" class="form-control" placeholder="Category Name"/>
+                                            <input asp-for="Name" class="form-control" placeholder="Category Name" />
                                             <span asp-validation-for="Name" class="text-black"></span>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="form-group col-lg-12 col-md-8 col-sm-6">
                                         <label asp-for="PhotoFile" class="control-label text-black-50"></label>
-                                        <input asp-for="PhotoFile" class="form-control"/>
+                                        <input asp-for="PhotoFile" class="form-control" />
                                         <span asp-validation-for="PhotoFile" class="text-black-50"></span>
                                     </div>
                                 </div>
@@ -71,7 +71,7 @@
                                 <div class="row card-group">
                                     <div class=" col-lg-12 col-md-8 col-sm-6">
                                         <div class="form-group">
-                                            <input type="submit" value="Ekle" class="btn btn-block btn-success" />
+                                            <input type="submit" value="@localizer["Add"]" class="btn btn-block btn-success" />
                                         </div>
                                     </div>
                                 </div>
@@ -81,7 +81,7 @@
                                 <div class="row card-group">
                                     <div class=" col-md-12">
                                         <div class="form-group">
-                                            <input type="submit" value="Listeye Don" class="btn btn-block btn-success" />
+                                            <input type="submit" value="@localizer["GoBackToList"]" class="btn btn-block btn-success" />
                                         </div>
                                     </div>
 
@@ -94,7 +94,7 @@
 
         </div>
     </div>
-    
+
 </body>
 </html>
 @section Scripts {

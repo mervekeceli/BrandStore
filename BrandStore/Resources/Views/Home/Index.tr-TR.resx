@@ -118,30 +118,27 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Buy" xml:space="preserve">
-    <value>Buy Now</value>
+    <value>Şimdi al</value>
   </data>
   <data name="Currency" xml:space="preserve">
     <value>$</value>
   </data>
-  <data name="Go Shop" xml:space="preserve">
-    <value>Go Shop</value>
-  </data>
-  <data name="NoBookMessage" xml:space="preserve">
-    <value>There is no new book added.</value>
+  <data name="GoShop" xml:space="preserve">
+    <value>Alışveriş Yap</value>
   </data>
   <data name="PopularCategories" xml:space="preserve">
-    <value>Popular Categories</value>
+    <value>Popüler Kategoriler</value>
   </data>
   <data name="Reviews" xml:space="preserve">
     <value>Değerlendirmeler</value>
   </data>
   <data name="Slogan" xml:space="preserve">
-    <value>New Books</value>
+    <value>Yeni Ürünler</value>
   </data>
   <data name="SomeProducts" xml:space="preserve">
-    <value>Some of Our Products</value>
+    <value>Bazı Ürünlerimiz</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>HomePage</value>
+    <value>Anasayfa</value>
   </data>
 </root>

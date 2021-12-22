@@ -150,16 +150,16 @@
   <data name="Shop" xml:space="preserve">
     <value>Alışveriş</value>
   </data>
-  <data name="Since last month" xml:space="preserve">
+  <data name="Sincelastmonth" xml:space="preserve">
     <value>Geçen aya göre</value>
   </data>
   <data name="Support" xml:space="preserve">
     <value>Yardım</value>
   </data>
-  <data name="Total Profit" xml:space="preserve">
+  <data name="TotalProfit" xml:space="preserve">
     <value>Toplam Kazanç</value>
   </data>
-  <data name="Total Purchase" xml:space="preserve">
+  <data name="TotalPurchase" xml:space="preserve">
     <value>Toplam Alışveriş</value>
   </data>
   <data name="Welcome!" xml:space="preserve">

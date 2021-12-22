@@ -120,9 +120,6 @@
   <data name="AddBrand" xml:space="preserve">
     <value>Marka Ekle</value>
   </data>
-  <data name="AdminPagefor BrandStore" xml:space="preserve">
-    <value> BrandStore için Admin Sayfası</value>
-  </data>
   <data name="ConfirmNewRequests" xml:space="preserve">
     <value>Yeni Marka Yeni Marka Istekleri Onayla</value>
   </data>
@@ -132,10 +129,13 @@
   <data name="Foundation" xml:space="preserve">
     <value>Bağış</value>
   </data>
-  <data name="Getting started" xml:space="preserve">
+  <data name="Gettingstarted" xml:space="preserve">
     <value>Başlarken</value>
   </data>
   <data name="Plugins" xml:space="preserve">
     <value>Eklentiler</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value> BrandStore için Admin Sayfası</value>
   </data>
 </root>

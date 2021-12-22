@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BrandStore.Models.Basket>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<BrandStore.Models.Basket>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -15,7 +16,7 @@
 <body>
     <section class="static about-sec">
         <div class="card">
-            <h1>My Orders</h1>
+            <h1>@localizer["Title"]</h1>
 
             @if (Model.Any())
             {
@@ -28,7 +29,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.Status)
                             </th>
-                            <th>Islemler</th>
+                            <th>@localizer["Action"]</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,29 +42,29 @@
                                 <td>
                                     @if (item.Status == "CARGO")
                                     {
-                                        <span>KARGO</span>
+                                         <span>@localizer["Cargo"]</span>
                                     }
                                     else if (item.Status == "CANCELED")
                                     {
-                                        <span>IPTAL</span>
+                                        <span>@localizer["Cancel"]</span>
                                     }
                                     else
                                     {
-                                        <span>TAMAMLANDI</span>
+                                        <span>@localizer["Completed"]</span>
                                     }
                                 </td>
                                 @if (item.Status == "CARGO")
                                 {
                                     <td style="display: flex;">
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detail" class="btn btn-success" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="@localizer["btnDetail"]" class="btn btn-success" /></a>
 
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="CancelOrder" asp-route-orderId="@item.Id"><input type="submit" value="Canceled" class="btn btn-success" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="CancelOrder" asp-route-orderId="@item.Id"><input type="submit" value="@localizer["btnCancel"]" class="btn btn-success" /></a>
                                     </td>
                                 }
                                 else
                                 {
                                     <td style="display: flex;">
-                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="Detail" class="btn btn-success" /></a>
+                                        <a style="padding: 5px;width: 50%;" asp-controller="Home" asp-action="OrderDetails" asp-route-orderId="@item.Id"><input type="submit" value="@localizer["btnDetail"]" class="btn btn-success" /></a>
                                     </td>
                                 }
                             </tr>
@@ -74,10 +75,10 @@
             }
             else
             {
-                <p style="margin-left:50px;">Hic Siparis Yok :/</p>
+                <p style="margin-left:50px;">@localizer["NoOrder"]</p>
             }
         </div>
-        
+
     </section>
 </body>
 </html>

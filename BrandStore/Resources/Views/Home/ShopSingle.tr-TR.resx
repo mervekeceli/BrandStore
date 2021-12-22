@@ -126,11 +126,17 @@
   <data name="Currency" xml:space="preserve">
     <value>₺</value>
   </data>
+  <data name="Description" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
   <data name="DiscPrice" xml:space="preserve">
     <value>İndirimli Fiyat</value>
   </data>
   <data name="Next" xml:space="preserve">
     <value>Sonraki</value>
+  </data>
+  <data name="NoItem" xml:space="preserve">
+    <value>Hiçbir Ürün Bulunamadı</value>
   </data>
   <data name="Previous" xml:space="preserve">
     <value>Önceki</value>

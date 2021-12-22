@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BrandStore.Models.BasketItem>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<BrandStore.Models.BasketItem>
 
 <html>
 <head>
@@ -7,7 +8,7 @@
 <body>
     <section class="static about-sec">
         <div class="container">
-            <h1>Order Details</h1>
+            <h1>@localizer["Title"]</h1>
             @foreach (var item in Model)
             {
                 <div class="card">

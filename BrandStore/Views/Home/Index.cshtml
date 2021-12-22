@@ -34,7 +34,6 @@
 </head>
 
 <body>
-    <h1>@localizer["HelloWorld"]</h1>
     <!-- Start Banner Hero -->
     <div id="template-mo-zay-hero-carousel" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
@@ -83,7 +82,7 @@
     <section class="container py-5">
         <div class="row text-center pt-3">
             <div class="col-lg-6 m-auto">
-                <h1 class="h1">Popüler Kategoriler</h1>
+                <h1 class="h1">@localizer["PopularCategories"]</h1>
                 <p>
                 </p>
             </div>
@@ -104,7 +103,7 @@
                                     <img src="~/img/@item.Photo" class="img-size rounded-circle img-fluid border h-100 w-100" href="Home/Shop">
                                 </a>
                                 <h2 class="h5 text-center mt-3 mb-3">@item.Name</h2>
-                                <p class="text-center"><a href="Home/Shop?category=@item.Name" class="btn btn-success">Go Shop</a></p>
+                                <p class="text-center"><a href="Home/Shop?category=@item.Name" class="btn btn-success">@localizer["GoShop"]</a></p>
                             </div>
                         }
 
@@ -120,7 +119,7 @@
         <div class="container py-5">
             <div class="row text-center py-3">
                 <div class="col-lg-6 m-auto">
-                    <h1 class="h1">Bazı Ürünlerimiz</h1>
+                    <h1 class="h1">@localizer["SomeProducts"]</h1>
                     <p>
                     </p>
                 </div>
@@ -169,7 +168,7 @@
                                         </ul>
                                         <p class="text-end mb-0">$@item.Price</p>
 
-                                        <p class="text-muted">Reviews (24)</p>
+                                        <p class="text-muted">@localizer["Reviews"]</p>
                                     </div>
                                 </div>
                             </div>

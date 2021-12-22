@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BrandStore.Models.FavoriteItem>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<BrandStore.Models.FavoriteItem>
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -20,7 +21,7 @@
     <div class="card p-4 px-5 py-5 justify-content-center">
         <div class="md:grid md:grid-cols-3 gap-2 ">
             <div class="col-span-2 p-5">
-                <h1 class="text-xl font-medium ">Favorites</h1>
+                <h1 class="text-xl font-medium ">@localizer["Title"]</h1>
                 @if (Model != null)
                 {
                     @if (Model.Any())
@@ -44,9 +45,9 @@
                 }
                 else
                 {
-                    <p style="margin-left:50px;">Sepetin bos gorunuyor...</p>
+            <p style="margin-left:50px;">@localizer["FavoriteLooksEmpty"]</p>
                 }
-                </div>
+            </div>
         </div>
     </div>
 

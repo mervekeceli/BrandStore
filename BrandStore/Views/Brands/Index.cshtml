@@ -1,4 +1,5 @@
-﻿@model IEnumerable<BrandStore.Models.Brand>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model IEnumerable<BrandStore.Models.Brand>
 @{
     Layout = "_LayoutSuperAdmin";
 }
@@ -6,9 +7,9 @@
 <div class="main-content">
     <section class="static about-sec">
         <div class="container">
-            <h1>Marka Ekle</h1>
+            <h1>@localizer["Title"]</h1>
             <form asp-controller="Brands" asp-action="Create" style=" margin-bottom: 10px;" method="get">
-                <button type="submit" class="btn btn-primary">Marka Ekle</button>
+                <button type="submit" class="btn btn-primary">@localizer["AddBrand"]</button>
             </form>
             <table class="table table-striped table-bordered" style="width:100%;">
                 <thead>

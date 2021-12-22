@@ -1,13 +1,15 @@
-﻿@model IEnumerable<BrandStore.Models.Product>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+@model IEnumerable<BrandStore.Models.Product>
 @{
     Layout = "_LayoutAdmin";
 }
 <div class="main-content">
     <section class="static about-sec">
         <div class="container-fluid">
-            <h1 style="text-align:center"><strong>Product List</strong></h1>
+            <h1 style="text-align:center"><strong>@localizer["Title"]</strong></h1>
             <form asp-controller="Products" asp-action="Create" style=" margin-bottom: 10px;" method="get">
-                <button type="submit" class="btn btn-success">Product Add</button>
+                <button type="submit" class="btn btn-success">@localizer["AddProduct"]</button>
             </form>
             <table class="table table-striped table-bordered" style="width:100%;">
                 <thead>
@@ -45,51 +47,51 @@
                 <tbody>
                     @foreach (var item in Model)
                     {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Price)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Stock)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Gender)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Size)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Brand.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Category.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CreateDate)
-                        </td>
-                        @if (item.Active == true)
-                        {
-                            <td><span class="circle green"></span></td>
+                        <tr>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
+                                @Html.DisplayFor(modelItem => item.Name)
                             </td>
-                        }
-                        else
-                        {
-                            <td><span class="circle red"></span></td>
                             <td>
-                                <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
-                                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
+                                @Html.DisplayFor(modelItem => item.Price)
                             </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Stock)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Gender)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Size)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Brand.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Category.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreateDate)
+                            </td>
+                            @if (item.Active == true)
+                            {
+                                <td><span class="circle green"></span></td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
+                                </td>
+                            }
+                            else
+                            {
+                                <td><span class="circle red"></span></td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
+                                </td>
 
-                        }
-                    </tr>
+                            }
+                        </tr>
                     }
                 </tbody>
             </table>

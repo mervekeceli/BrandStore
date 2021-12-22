@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -6,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
     <meta name="author" content="Creative Tim">
-    <title>AdminPage for BrandStore</title>
     <!-- Favicon -->
     <link rel="icon" href="~/assets/img/brand/favicon.png" type="image/png">
     <!-- Fonts -->
@@ -26,13 +27,13 @@
             display: inline-block;
         }
 
-        .circle.red {
-            background-color: red;
-        }
+            .circle.red {
+                background-color: red;
+            }
 
-        .circle.green {
-            background-color: green;
-        }
+            .circle.green {
+                background-color: green;
+            }
     </style>
 </head>
 
@@ -51,23 +52,24 @@
                     <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Products" asp-action="Create">
-                                <span class="nav-link-text"><b>Product Add</b></span>
+                                <span class="nav-link-text"><b>@localizer["AddProduct"]Product Add</b></span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Categories" asp-action="Create">
-                                <span class="nav-link-text"><b>Category Add</b></span>
+                                <span class="nav-link-text"><b>@localizer["AddCategory"]Category Add</b></span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="MainCategories" asp-action="Create">
-                                <span class="nav-link-text"><b>Main Category Add</b></span>
+                                <span class="nav-link-text"><b>@localizer["AddMainCategory"]Main Category Add</b></span>
                             </a>
                         </li>
                         <li class="nav-item icon-text-aligner">
-                            <a class="nav-link"><b>
-                                <partial name="/Views/Shared/_LoginPartial.cshtml" />
-                            </b>
+                            <a class="nav-link">
+                                <b>
+                                    <partial name="/Views/Shared/_LoginPartial.cshtml" />
+                                </b>
                             </a>
                         </li>
 
@@ -76,32 +78,20 @@
                     <hr class="my-3">
                     <!-- Heading -->
                     <h6 class="navbar-heading p-0 text-muted">
-                        <span class="docs-normal">Documentation</span>
+                        <span class="docs-normal">@localizer["Documentation"]</span>
                     </h6>
                     <!-- Navigation -->
                     <ul class="navbar-nav mb-md-3">
                         <li class="nav-item">
                             <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
                                 <i class="ni ni-spaceship"></i>
-                                <span class="nav-link-text">Getting started</span>
+                                <span class="nav-link-text">@localizer["Gettingstarted"]</span>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html" target="_blank">
                                 <i class="ni ni-palette"></i>
-                                <span class="nav-link-text">Foundation</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html" target="_blank">
-                                <i class="ni ni-ui-04"></i>
-                                <span class="nav-link-text">Components</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/plugins/charts.html" target="_blank">
-                                <i class="ni ni-chart-pie-35"></i>
-                                <span class="nav-link-text">Plugins</span>
+                                <span class="nav-link-text">@localizer["Foundation"]</span>
                             </a>
                         </li>
                     </ul>

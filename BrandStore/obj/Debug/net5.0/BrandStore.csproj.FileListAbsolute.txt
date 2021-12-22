@@ -2721,3 +2721,5 @@ C:\Users\User\Desktop\YeniGuncel2112\BrandStore\BrandStore\obj\Debug\net5.0\Bran
 C:\Users\User\Desktop\YeniGuncel2112\BrandStore\BrandStore\obj\Debug\net5.0\ref\BrandStore.dll
 C:\Users\User\Desktop\YeniGuncel2112\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\YeniGuncel2112\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
+C:\Users\User\Desktop\YeniGuncel2112\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.Resources.Views.Home.CreateBrand.en-US.resources
+C:\Users\User\Desktop\YeniGuncel2112\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.Resources.Views.Home.CreateBrand.tr-TR.resources

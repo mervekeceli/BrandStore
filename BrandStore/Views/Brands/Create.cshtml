@@ -1,4 +1,5 @@
-﻿@model BrandStore.Models.Brand
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer;
+@model BrandStore.Models.Brand
 @{
     Layout = "_LayoutSuperAdmin";
 }
@@ -42,7 +43,7 @@
             <div class="container">
                 <div class="row text-white">
                     <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                        <h1 class="display-4 py-2 text-white">Marka Ekle</h1>
+                        <h1 class="display-4 py-2 text-white">@localizer["Title"]</h1>
                         <div class="px-2">
                             <form action="" class="justify-content-center">
                                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -62,7 +63,7 @@
                                     <span asp-validation-for="PhotoFile" class="text-danger"></span>
                                 </div>
                                 <div class="form-group">
-                                    <input type="submit" value="Ekle" class="btn btn-block btn-success" />
+                                    <input type="submit" value="@localizer["Add"]" class="btn btn-block btn-success" />
                                 </div>
 
                             </form>
