@@ -5,62 +5,64 @@
 }
 
 <div class="main-content">
-    <section class="static about-sec">
-        <div class="container">
-            <h1>@localizer["Title"]</h1>
-            <form asp-controller="Brands" asp-action="Create" style=" margin-bottom: 10px;" method="get">
-                <button type="submit" class="btn btn-primary">@localizer["AddBrand"]</button>
-            </form>
-            <table class="table table-striped table-bordered" style="width:100%;">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Name)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Description)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Active)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+        <section class="static about-sec">
+            <div class="container-fluid">
+                <h1 style="text-align:center"><strong>@localizer["Title"]</strong></h1>
+                <form asp-controller="Brands" asp-action="Create" style=" margin-bottom: 10px;" method="get">
+                    <button type="submit" class="btn btn-success">@localizer["AddBrand"]</button>
+                </form>
+                <table class="table table-striped table-bordered">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Name)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Description)
-                            </td>
-                            @if (item.Active == true)
-                            {
-                                <td><span class="circle green"></span></td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
-                                </td>
-                            }
-                            else
-                            {
-                                <td><span class="circle red"></span></td>
-                                <td>
-                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
-                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
-                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
-                                </td>
-
-                            }
-
+                            <th>
+                                @Html.DisplayNameFor(model => model.Name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Description)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Active)
+                            </th>
+                            <th>İşlemler</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </section>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Description)
 
+                                </td>
+                                @if (item.Active == true)
+                                {
+                                    <td><span class="circle green"></span></td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-window-close"></i></a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td><span class="circle red"></span></td>
+                                    <td>
+                                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fa fa-check-square"></i></a>
+                                    </td>
+
+                                }
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
 </div>

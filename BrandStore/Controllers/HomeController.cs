@@ -106,9 +106,9 @@ namespace BrandStore.Controllers
 
         public async Task<IActionResult> ShopSingle(string productName, int category)
         {
-            List<Product> products = await _context.Products.Where(b => b.CategoryId == category).Take(3).ToListAsync();
-            Product product = _context.Products.Where(b => b.Name == productName).FirstOrDefault();
-            List<Product> _products = _context.Products.Where(b => b.Name == productName).ToList();
+            List<Product> products = await _context.Products.Include(b => b.Brand).Where(b => b.CategoryId == category).Take(3).ToListAsync();
+            Product product = _context.Products.Include(b=>b.Brand).Where(b => b.Name == productName).FirstOrDefault();
+            List<Product> _products = _context.Products.Include(b => b.Brand).Where(b => b.Name == productName).ToList();
             List<string> _bedenler = new List<string>();
             List<string> _newbedenler = new List<string>();
             foreach (var item in _products)
@@ -122,6 +122,7 @@ namespace BrandStore.Controllers
             products.Add(product);
 
             return View(products);
+
 
         }
         public async Task<IActionResult> AddProductToBasket(int productId)

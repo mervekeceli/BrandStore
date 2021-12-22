@@ -58,17 +58,11 @@
                 <div class="flex-fill">
                     <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                         <li class="nav-item">
-                            <partial name="_Culture" />
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@localizer["Home"]</a>
                         </li>
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Shop">@localizer["LastIn"]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">@localizer["ContactUs"]</a>
                         </li>
                         <partial name="/Views/Shared/_LoginPartial.cshtml" />
                     </ul>
@@ -97,6 +91,7 @@
                         <i class="fa fa-fw fa-user text-dark mr-3"></i>
                         <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
                     </a>
+                    <a><partial name="_Culture" /></a>
                 </div>
             </div>
 

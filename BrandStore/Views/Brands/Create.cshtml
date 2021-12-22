@@ -3,7 +3,7 @@
 @{
     Layout = "_LayoutSuperAdmin";
 }
-@* justify-content-center align-items-center*@
+
 <html>
 <head>
     <style>
@@ -38,39 +38,58 @@
     </style>
 </head>
 <body>
-    <div class="main-content">
+<div class="main-content">
         <div id="cover-caption">
             <div class="container">
-                <div class="row text-white">
-                    <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                        <h1 class="display-4 py-2 text-white">@localizer["Title"]</h1>
-                        <div class="px-2">
-                            <form action="" class="justify-content-center">
-                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                                <div class="form-group">
-                                    <label asp-for="Name" class="control-label"></label>
-                                    <input asp-for="Name" class="form-control" />
-                                    <span asp-validation-for="Name" class="text-danger"></span>
+                <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+                    <h1 class="display-4 py-2 text-black-50">@localizer["Title"]</h1>
+                    <div class="px-2 card">
+                        <form asp-action="Create" enctype="multipart/form-data" class="justify-content-center">
+                            <div class="row card-group">
+                                <div class="col-lg-12 col-md-8 col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Name" class="control-label text-black-50"></label>
+                                        <input asp-for="Name" class="form-control" placeholder="Brand Name" />
+                                        <span asp-validation-for="Name" class="text-black"></span>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="Description" class="control-label"></label>
-                                    <input asp-for="Description" class="form-control" />
-                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                <div class="col-lg-12 col-md-8 col-sm-6">
+                                    <div class="form-group">
+                                        <label asp-for="Description" class="control-label text-black-50"></label>
+                                        <input asp-for="Description" class="form-control" placeholder="Brand Description" />
+                                        <span asp-validation-for="Description" class="text-black"></span>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label asp-for="PhotoFile" class="control-label"></label>
+                                <div class="form-group col-lg-12 col-md-8 col-sm-6">
+                                    <label asp-for="PhotoFile" class="control-label text-black-50"></label>
                                     <input asp-for="PhotoFile" class="form-control" />
-                                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
+                                    <span asp-validation-for="PhotoFile" class="text-black-50"></span>
                                 </div>
-                                <div class="form-group">
-                                    <input type="submit" value="@localizer["Add"]" class="btn btn-block btn-success" />
+                            </div>
+                            <div class="row card-group">
+                                <div class=" col-lg-12 col-md-8 col-sm-6">
+                                    <div class="form-group">
+                                        <input type="submit" value="@localizer["Add"]" class="btn btn-block btn-success" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                        <form asp-action="Index" class="justify-content-center">
+                            <div class="row card-group">
+                                <div class=" col-md-12">
+                                    <div class="form-group">
+                                        <input type="submit" value="Listeye Don" class="btn btn-block btn-success" />
+                                    </div>
                                 </div>
 
-                            </form>
-                        </div>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </body>

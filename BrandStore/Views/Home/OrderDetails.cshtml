@@ -3,20 +3,29 @@
 
 <html>
 <head>
+    <style>
+        .card{
+            margin: 20px;
 
+        }
+    </style>
 </head>
 <body>
     <section class="static about-sec">
+        <br /><br />
         <div class="container">
-            <h1>@localizer["Title"]</h1>
+            <h1 class="text-center">@localizer["Title"]</h1>
             @foreach (var item in Model)
             {
-                <div class="card">
+                <div class="card row">
                     <h5 class="card-header">@item.Product.Name</h5>
-                    <div class="card-body">
+                    <div class="card-body col-lg-8 col-md-6">
                         <h5 class="card-title">Fiyat: $@item.Product.Price</h5>
                         <p class="card-text">@item.Product.Description</p>
-                        <img class="img-fluid" href="@item.Product.MainPhoto" />
+                        
+                    </div>
+                    <div class="card-body col-lg-4 col-md-2">
+                        <img src="~/img/@item.Product.MainPhoto" width="80" class="rounded-full ">
                     </div>
                 </div>
             }
@@ -24,5 +33,3 @@
     </section>
 </body>
 </html>
-
-

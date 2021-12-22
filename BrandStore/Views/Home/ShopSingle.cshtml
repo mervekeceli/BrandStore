@@ -576,7 +576,6 @@
     }
     else
     {
-
         <!-- Open Content  -->
         <section class="bg-light">
             <div class="container pb-5">
@@ -584,7 +583,7 @@
                     <div class="col-lg-5 mt-5">
                         <div class="app-figure" id="zoom-fig">
                             <a id="Zoom-1" class="MagicZoom"
-                               href="~/img/@product1"
+                               href="~/img/@product1.MainPhoto"
                                data-zoom-image-2x="~/img/@product1.MainPhoto"
                                data-image-2x="~/img/@product1.MainPhoto">
                                 <img class="carousel-product img-fluid" src="~/img/@product1.MainPhoto" alt="Card image cap" />
@@ -729,7 +728,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h1 class="h2">@product1.Name</h1>
-                                <p class="h3 py-2">@product1.Price</p>
+                                <p class="h3 py-2">Fiyat: $@product1.Price</p>
                                 <p class="py-2">
                                     <i class="fa fa-star text-warning"></i>
                                     <i class="fa fa-star text-warning"></i>
@@ -740,60 +739,40 @@
                                 </p>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <h6>@localizer["Next"]Brand:</h6>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <p class="text-muted"><strong>Easy Wear</strong></p>
+                                        <h6>@localizer["Next"]Brand: @product1.Brand.Name</h6>
                                     </li>
                                 </ul>
 
-                                <h6>@localizer["Description"]</h6>
-                                <p>@product1.Description</p>
+                                <h6>Description: @localizer["Description"]</h6>
                                 <ul class="list-inline">
                                     <li class="list-inline-item">
-                                        <h6>Avaliable Color :</h6>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <p class="text-muted"><strong>White / Black</strong></p>
+                                        <h6>Avaliable Color : @product1.Color</h6>
                                     </li>
                                 </ul>
 
 
-
-                                <input type="hidden" name="product-title" value="Activewear">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item">
-                                                Size :
-                                                <input type="hidden" name="product-size" id="product-size" value="S">
-                                            </li>
-                                            @foreach (var item in ViewBag.Bedenler)
-                                            {
-                                                <li class="list-inline-item"><span class="btn btn-success btn-size">@item</span></li>
-                                            }
-                                        </ul>
+                                <form action="" method="GET">
+                                    <input type="hidden" name="product-title" value="Activewear">
+                                    <div class="row">
+                                        <div class="col-auto">
+                                            <ul class="list-inline pb-3">
+                                                <li class="list-inline-item">
+                                                    Size :
+                                                    <input type="hidden" name="product-size" id="product-size" value="S">
+                                                </li>
+                                                @foreach (var item in ViewBag.Bedenler)
+                                                {
+                                                    <li class="list-inline-item"><span class="btn btn-success btn-size">@item</span></li>
+                                                }
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <ul class="list-inline pb-3">
-                                            <li class="list-inline-item text-right">
-                                                Quantity
-                                                <input type="hidden" name="product-quanity" id="product-quanity" value="1">
-                                            </li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-minus">-</span></li>
-                                            <li class="list-inline-item"><span class="badge bg-secondary" id="var-value">1</span></li>
-                                            <li class="list-inline-item"><span class="btn btn-success" id="btn-plus">+</span></li>
-                                        </ul>
+                                    <div class="row pb-6">
+                                        <div class="col d-grid">
+                                                <a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id">@localizer["AddBasket"]</a>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row pb-3">
-                                    <div class="col d-grid">
-                                        <form asp-controller="Home" asp-action="AddProductToBasket" method="post">
-                                            <button type="submit" class="btn btn-success btn-lg" name="submit" value="addtocard">@localizer["AddBasket"]</button>
-                                        </form>
-
-                                    </div>
-                                </div>
+                                </form>
 
                             </div>
                         </div>
@@ -811,44 +790,56 @@
             </div>
             <div class="row">
                 @{
-                    <div class="col-md-4">
-                        <div class="card mb-4 product-wap rounded-0">
-                            <div class="card rounded-0">
-                                <img class="card-img rounded-0 img-fluid" src="~/img/@product1.Name">
-                                <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                                    <ul class="list-unstyled">
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id"><i class="far fa-heart"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@product1.Name"><i class="far fa-eye"></i></a></li>
-                                        <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@product1.Id"><i class="fas fa-cart-plus"></i></a></li>
-                                    </ul>
+                    var count = 0;
+
+                    foreach (var item in Model)
+                    {
+                        if (count < 3)
+                        {
+                            <div class="col-md-4">
+                                <div class="card mb-4 product-wap rounded-0">
+                                    <div class="card rounded-0">
+                                        <img class="card-img rounded-0 img-fluid" src="~/img/@item.MainPhoto">
+                                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                            <ul class="list-unstyled">
+                                                <li><a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@item.Id"><i class="far fa-heart"></i></a></li>
+                                                <li><a class="btn btn-success text-white mt-2" href="ShopSingle?productName=@item.Name"><i class="far fa-eye"></i></a></li>
+                                                <li><a class="btn btn-success text-white mt-2" href="AddProductToFavorites?productId=@item.Id"><i class="fas fa-cart-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="Home/ShopSingle" class="h3 text-decoration-none">@item.Name</a>
+
+                                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                            <li>Beden: @item.Size</li>
+                                            <li class="pt-2">
+                                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                            <li>
+                                                <i class="text-warning fa fa-star"></i>
+                                                <i class="text-warning fa fa-star"></i>
+                                                <i class="text-warning fa fa-star"></i>
+                                                <i class="text-muted fa fa-star"></i>
+                                                <i class="text-muted fa fa-star"></i>
+                                            </li>
+                                        </ul>
+                                        <p class="text-center mb-0">$@item.Price</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="card-body">
-                                <a href="Home/ShopSingle" class="h3 text-decoration-none"></a>
+                        }
 
-                                <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
-                                    <li>Beden: @product1.Size</li>
-                                    <li class="pt-2">
-                                        <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                                        <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                                    </li>
-                                </ul>
-                                <ul class="list-unstyled d-flex justify-content-center mb-1">
-                                    <li>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-warning fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                        <i class="text-muted fa fa-star"></i>
-                                    </li>
-                                </ul>
-                                <p class="text-center mb-0">$@product1.Price</p>
-                            </div>
-                        </div>
-                    </div>
+                        count++;
+                    }
+
+
                 }
 
             </div>
@@ -905,5 +896,4 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.min.js"></script>
     <script>try { prettyPrint(); } catch (e) { }</script>
 </body>
-
 </html>
