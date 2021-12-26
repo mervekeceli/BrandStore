@@ -768,9 +768,15 @@
                                             </ul>
                                         </div>
                                     </div>
+
+
                                     <div class="row pb-6">
-                                        <div class="col d-grid">
+                                        <div class="col d-grid col-6">
                                             <a class="btn btn-success text-white mt-2" href="AddProductToBasket?productId=@product1.Id">Add Basket</a>
+                                            
+                                        </div>
+                                        <div class="col d-grid col-6">
+                                            <a class="btn btn-success text-white mt-2" href="Body">3D</a>
                                         </div>
                                     </div>
                                 </form>
@@ -796,7 +802,7 @@
 
                     foreach (var item in Model)
                     {
-                        if (count < 3)
+                        if (count !=Model.Count()-1)
                         {
                             <div class="col-md-4">
                                 <div class="card mb-4 product-wap rounded-0">
@@ -811,7 +817,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <a href="Home/ShopSingle" class="h3 text-decoration-none">@item.Name</a>
+                                        <a href="ShopSingle?productName=@item.Name&&@item.CategoryId" class="h3 text-decoration-none">@item.Name</a>
 
                                         <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
                                             <li>Beden: @item.Size</li>

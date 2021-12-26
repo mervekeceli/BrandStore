@@ -3297,3 +3297,5 @@ C:\Users\User\Desktop\YeníGuncel22.12\BrandStore\BrandStore\obj\Debug\net5.0\Br
 C:\Users\User\Desktop\YeníGuncel22.12\BrandStore\BrandStore\obj\Debug\net5.0\ref\BrandStore.dll
 C:\Users\User\Desktop\YeníGuncel22.12\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.pdb
 C:\Users\User\Desktop\YeníGuncel22.12\BrandStore\BrandStore\obj\Debug\net5.0\BrandStore.genruntimeconfig.cache
+C:\Users\merve\Desktop\github\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Brands\NewBrandRequests.cshtml.g.cs
+C:\Users\merve\Desktop\github\BrandStore\BrandStore\obj\Debug\net5.0\Razor\Views\Home\Body.cshtml.g.cs

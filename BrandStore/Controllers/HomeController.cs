@@ -125,6 +125,10 @@ namespace BrandStore.Controllers
 
 
         }
+
+        public IActionResult Body() {
+            return View();
+        }
         public async Task<IActionResult> AddProductToBasket(int productId)
         {
             var basket = await _context.Baskets

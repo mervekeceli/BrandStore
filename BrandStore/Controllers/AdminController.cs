@@ -42,7 +42,7 @@ namespace BrandStore.Controllers
             var ApplicationUserId = _httpContextAccessor.HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             List<Brand> _brands = _context.Brands.Include(b => b.ApplicationUser).Where(b => b.Active == false).ToList();
 
-            List<BasketItem> _basketitems = _context.BasketItems.Where(p => p.Product.Brand.ApplicationUserId == ApplicationUserId).ToList();
+            List<BasketItem> _basketitems = _context.BasketItems.Include(p=>p.Product).Where(p => p.Product.Brand.ApplicationUserId == ApplicationUserId).ToList();
             totalArray[0] = _basketitems.Sum(x => x.Product.Price);
             totalArray[1] = _basketitems.Count();
             return totalArray;
