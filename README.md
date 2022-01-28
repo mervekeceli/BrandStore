@@ -1,4 +1,4 @@
-# ✏️ BookStore E-commerce Application
+# ✏️ BrandStore E-commerce Application
 
 This e-commerce web application is designed as a project for computer engineering design. There is an admin panel where admins can manage everything related to products. In addition, users can become a member of the site and search for products, track the status of their orders and place an order by adding the products they like to their carts. The ordered products are waiting to be shipped from the admin panel. The development of the project was done using .NET Core, EntityFramework as ORM tool, HTML/CSS, and JavaScript.
 
