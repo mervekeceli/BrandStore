@@ -6,12 +6,12 @@ This e-commerce web application is designed as a project for computer engineerin
 
 Clone the project to your computer.
 ```
-> git clone https://github.com/SuleAktas/BrandStore.git
+git clone https://github.com/SuleAktas/BrandStore.git
 ```
 
 Open the project folder and run the entity framework update command in the CLI.
 ```
-> dotnet ef database update
+dotnet ef database update
 ```
 ## 📷 Screenshots
 
