@@ -24,6 +24,6 @@ dotnet ef database update
 <table>
   <tr>
     <td align="center"><a href="https://www.linkedin.com/in/merveekeceli/"><img src="https://avatars.githubusercontent.com/u/56134222?v=4" width="100px;" alt=""/><br /><sub><b>Merve Keçeli</b></sub></a><br /></td>
-    <td align="center"><a href="https://www.linkedin.com/in/%C5%9Fule-akta%C5%9F-4b681319b/"><img src="https://avatars.githubusercontent.com/u/64965733?v=4s=100" width="100px;" alt=""/><br /><sub><b>Şule Aktaş</b></sub></a><br /></td>
+    <td align="center"><a href="https://www.linkedin.com/in/suleaktas1/"><img src="https://avatars.githubusercontent.com/u/64965733?v=4s=100" width="100px;" alt=""/><br /><sub><b>Şule Aktaş</b></sub></a><br /></td>
   </tr>
 </table>
